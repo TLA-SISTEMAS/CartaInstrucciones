@@ -1,0 +1,83 @@
+﻿https://ironsoftware.com/csharp/word/docs/license/eula/
+
+License Agreement
+Terms and Conditions
+This EULA is by and between Iron Software ("Iron") and the person or entity licensing the Iron Software ("Company") and governs, along with any referenced documents, including any Orders, addenda or exhibits (together, the "Agreement"), the use of the Iron Software licensed to Company.
+
+
+1. Overview
+Iron is the owner and licensor of several software libraries and packages, as described by Iron on Iron’s website and in Iron’s marketing materials (the “Iron Software”). The Iron Software consists of multiple products (each, a “Product”), which may be licensed individually or as a suite of Products (the “IronSuite”), which are described in greater detail in an Order. Products and the IronSuite are referred to herein as Iron Software. Iron offers Company one or more options to use the Iron Software as documented by Iron subject to the restrictions stated in this Agreement. Iron may also provide support services (“Support and Updates”) and other services, including consulting services regarding Company’s use of the Iron Software (collectively with Support and Updates, the “Services”). Support and Updates shall not apply to any third-party end-user software developed by Company.
+Iron makes the Iron Software and Services available to Company directly or through a third party (such as an authorized reseller) using a written online or offline order process (each, an “Order”).
+Pursuant to the terms of this Agreement, Iron will provide to Company the Iron Software or Services described in each Order.
+
+
+2. Iron Software and Services
+During the term of this Agreement, Iron grants to Company and Company accepts a non-exclusive, non-transferable, revocable and limited license to use each item of Iron Software listed on an Order by Company for Company’s own internal use (and not for resale in a materially unaltered form), subject to the terms, obligations, and restrictions set forth in the Order and in this Agreement (“Iron Software License”).
+
+
+Each Iron Software License and each Service is subject to permissions, limitations and responsibilities stated in the applicable Order (“Metrics”), which may state whether Company is permitted to:
+  1. use the Iron Software for a limited trial only, for a stated time period, or perpetually;
+  2. evaluate the Iron Software or use it in a production environment;
+  3. use the Iron Software at no charge or for a stated fee;
+  4. permit access to the Iron Software to an unlimited number of authorized users or to a limited number of authorized users;
+  5. install and use the Iron Software in one computing device (“Machine”) or multiple Machines;
+  6. use a single copy or multiple copies of the Iron Software (“Copies”);
+  7. use the Iron Software solely for internal development use (“Internal Use”);
+  8. combine the Iron Software with Company’s own software (“Company Software”);
+  9. distribute to one or more of Company’s customers (each, a “Customer”);
+  10. install the Iron Software in Company’s or Customer’s systems (“Installed”) or made available by Company on a website owned or controlled by Company as software as a service (“SaaS”);
+  11. use the Iron Software in one or more physical addresses (each, a “Location”);
+  12. receive Support and Updates for a limited period of time or not at all; or
+  13. receive new versions of the Iron Software made available by Company to the general public (“New Versions”) while Support and Updates is current and active, or receive New Versions only when Company pays additional fees.
+
+
+Currently, Iron offers Iron Software Licenses in the following combination of Metrics (each license type expressly excludes any rights not specifically granted):
+
+
+Free Trial License. Grants the use of the Iron Software for private non-production evaluation purposes only (“Trial License”). The Iron Software may not be used in any production, Installed, SaaS, or intranet project.
+
+
+Team Licenses. The following licenses (each, a “Team License”) may be licensed on a per-Product-basis or for the entire Iron Suite, as set forth in an Order. Team Licenses are perpetual in nature, subject to Company’s compliance with the Agreement. Company may subscribe to Support and Updates, which Iron may modify in its sole discretion, on either a 1-year or 5-year basis for Team Licenses. Then-current pricing for Support and Updates is set forth in an Order.
+
+
+Lite License. Grants the use of a specific Iron Software Product by a single Developer in an organization in at a single Location. The Iron Software may be deployed within one web, single-site intranet or desktop software application. This license type does not allow distribution of the Iron Software to third parties, or SaaS project usage scenarios. “Developer” means either a software developer or a virtual machine using a developer license.
+
+
+Plus License. Grants the use of either (i) a specific Iron Software Product or (ii) the Iron Suite by a specified number of Developers up to a maximum of 3 in a single organization in up to 3 Locations. The Iron Software may be deployed in up to a maximum of 3 web, single-site intranet, or desktop software applications.
+
+
+Professional License. Grants the use of either (i) a specific Iron Software Product or (ii) the Iron Suite by a specified number of Developers up to a maximum of 10 in a single organization in up to 10 Locations. The Iron Software may be deployed in up to a maximum of 10 web, single-site intranet, or desktop software applications.
+
+
+Unlimited License. Grants the use of the Iron Suite by a specified number of Developers, Locations and web, single-site intranet, or desktop software applications, as set forth in an Order.
+
+
+All Team Licenses are non-transferable and sharing of licenses outside an organization or agency/client relationship is prohibited. Team Licenses expressly exclude any rights not specifically granted under the Agreement as do all other license types, and expressly exclude, without limitation, OEM Redistribution or SDK Redistribution, and using the Iron Software as SaaS, without additional purchase of Royalty-Free Distribution Coverage, which is only available for the Iron Software Licenses set forth in an Order.
+
+
+Single Product Enterprise License. This enterprise license includes Royalty-Free Redistribution Coverage (OEM Redistribution) for a specified number of Developers in an organization in a specified number of Locations to deploy a single Iron Product within a specified number of web applications, intranet applications or desktop software applications (the “Single Product Enterprise License”), as set forth in an Order.
+
+
+Iron Suite Enterprise License. This enterprise license includes Royalty-Free Redistribution Coverage (either OEM Redistribution or SDK Redistribution, as set forth in an Order) and may be for either (i) a specific Iron Software Product (the “Single Product Enterprise License”) or (ii) the Iron Suite (the “Iron Suite Enterprise License”). Both the Single Product Enterprise License and the Iron Suite Enterprise License are perpetual, subject to Company’s compliance with the License Agreement. The Single Product Enterprise License and the Iron Suite Enterprise License permit an unlimited number of Developers in an organization in an unlimited number of Locations to deploy a single Iron Product or the Iron Suite, respectively, within an unlimited number of web applications, intranet applications or desktop software applications.
+
+
+Iron Suite Monthly License. This license includes OEM Royalty-free Redistribution Coverage. The Iron Suite Monthly License permits the use of the Iron Suite on a subscription basis by an unlimited number of Developers in an organization in an unlimited number of Locations to deploy the Iron Suite within an unlimited number of web applications, intranet applications or desktop software applications (“Iron Suite Monthly License”). The Iron Suite Monthly License includes up to a specified number of API requests (calls) per month as set forth in an Order. Any API calls exceeding the specified amount will result in an extra charge per API call as set forth in the Order, which is due and payable the following month. Iron Suite Monthly Licenses are non-transferable and sharing of licenses outside an organization or agency/client relationship is prohibited. Support and Updates are included with the Iron Suite Monthly License.
+
+
+Royalty-Free Redistribution Options. These add-ons, which may be purchased under an Order for certain Iron Software Licenses, grant a Company the right to distribute the Iron Software (without any duty to pay royalties) as part of a number of distinct packaged commercial end-user software to its Customers (together, “Royalty-Free Redistribution Coverage”):
+
+
+OEM Redistribution. This Royalty-Free Redistribution Coverage add-on (“OEM Redistribution”) grants Company the right to deploy the Iron Software within end-user software, public-facing websites and applications, extranets, multi-site intranets or SaaS software services for its Customers. OEM Redistribution does not permit the creation of open APIs to integrate with a Customer’s end-user software, like a development library or automation service with an API or SDK. OEM Redistribution does not include any SDK Redistribution rights. Redistribution of the Iron Software in any context, including OEM Redistribution, is strictly prohibited unless explicitly licensed and approved by Iron through a paid Order or written consent.
+
+
+SDK Redistribution. This Royalty-Free Redistribution Coverage add-on (“SDK Redistribution”) grants, in addition to OEM Redistribution rights, the right to install and use a set of development tools (“SDK”) that allow a Developer to create open APIs (using compiled code generated via the SDK) to integrate the Iron Software with Company’s end-user software, public facing websites and applications, extranets, multi-site intranets or SaaS software services for its Customers. The SDK may not be used in any of Iron’s competitors’ software libraries. “Third-Party API Deployment” means any distribution of end-user software, public-facing websites and applications, extranets, multi-site intranets or SaaS software services created using the SDK by Company to its Customers, either directly or through distribution channels. Each person or entity who receives such end-user software, public-facing websites and applications, extranets, multi-site intranets or SaaS software services created using the SDK counts as one (1) Third-Party API Deployment.
+
+
+Regardless of the type of Iron Software License, Iron and Company expressly agree that Company will not directly compete with the functionality of any current Iron Software or Service.
+Company may not redistribute, republish, or otherwise make available the Iron Software or Services to any third party without the prior written consent of Iron as stated in an Order or this Agreement.
+Company will monitor its own use of the Iron Software and report any use in excess of the Metrics and volume. Iron Software may monitor use to verify with Iron servers compliance with Metrics, volume and the Agreement. Notwithstanding the foregoing, no Company or end-user data is ever accessed by Iron. In the event Company does not pay Iron (after receiving notice regarding the same) for any use of the Iron Software in excess of the metrics set forth in an applicable Order, Iron retains the right to suspend or disable such Products until such time as payment is made, which shall be payable at Iron’s then-current pricing.
+
+
+3. Data and Content
+Company retains any and all rights in any information, content and data provided by Company, including all rights in new versions and derivative works of Company’s information, content and data. Iron retains any and all rights in any information, content and data provided by Iron, including all rights in new versions and derivative works of Iron’s information, content and data.
+Iron may collect, store, use, aggregate and share information about Company and its customers, including about how Company and its customers use the Iron Software and any Services. Details about how Iron currently processes Company data are stated in Iron’s Privacy Statement, which Iron may modify from time to time to reflect Iron’s current practices and in response to evolving laws and regulations around the world.

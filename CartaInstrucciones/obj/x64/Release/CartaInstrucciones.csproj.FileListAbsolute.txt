@@ -1,0 +1,9 @@
+C:\Users\Camaras\source\repos\CartaInstrucciones\CartaInstrucciones\obj\x64\Release\CartaInstrucciones.csproj.AssemblyReference.cache
+C:\Users\Camaras\source\repos\CartaInstrucciones\CartaInstrucciones\obj\x64\Release\CartaInstrucciones.csproj.SuggestedBindingRedirects.cache
+C:\Users\Camaras\source\repos\CartaInstrucciones\CartaInstrucciones\obj\x64\Release\CartaInstrucciones.csproj.ResolveComReference.cache
+C:\Users\Camaras\source\repos\CartaInstrucciones\CartaInstrucciones\obj\x64\Release\CartaInstrucciones.DatosImportador.resources
+C:\Users\Camaras\source\repos\CartaInstrucciones\CartaInstrucciones\obj\x64\Release\CartaInstrucciones.DatosProveedor.resources
+C:\Users\Camaras\source\repos\CartaInstrucciones\CartaInstrucciones\obj\x64\Release\CartaInstrucciones.Form1.resources
+C:\Users\Camaras\source\repos\CartaInstrucciones\CartaInstrucciones\obj\x64\Release\CartaInstrucciones.Properties.Resources.resources
+C:\Users\Camaras\source\repos\CartaInstrucciones\CartaInstrucciones\obj\x64\Release\CartaInstrucciones.csproj.GenerateResource.cache
+C:\Users\Camaras\source\repos\CartaInstrucciones\CartaInstrucciones\obj\x64\Release\CartaInstrucciones.csproj.CoreCompileInputs.cache
