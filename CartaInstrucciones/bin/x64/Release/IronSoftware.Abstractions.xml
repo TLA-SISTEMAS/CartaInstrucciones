@@ -1,0 +1,3524 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IronSoftware.Abstractions</name>
+    </assembly>
+    <members>
+        <member name="T:IronSoftware.Abstractions.Absolute.IDocumentPageCollection`1">
+            <summary>
+            Collection of document pages
+            </summary>
+            <typeparam name="PageType">Text object type</typeparam>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Absolute.IDocumentPageCollection`1.Item(System.Int32)">
+            <summary>
+            Indexer to access pages by index
+            </summary>
+            <param name="index">Page index</param>
+            <returns>Document page</returns>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Absolute.IDocumentPage`1">
+            <summary>
+            Single page within a document
+            </summary>
+            <typeparam name="DomType">DOM object type</typeparam>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Absolute.IDocumentPage`1.ObjectModel">
+            <summary>
+            Object model for this page (text, images, paths, etc.)
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Absolute.IDocumentPageContainer`1">
+            <summary>
+            Container of pages which may contain text
+            </summary>
+            <typeparam name="PageCollectionType">Page collection object type</typeparam>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Absolute.IDocumentPageContainer`1.Pages">
+            <summary>
+            Read-only collection of all pages within this container
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.IAbsolute">
+            <summary>
+            Represents an object that can be positioned absolutely.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.IAbsolute.BoundingBox">
+            <summary>
+            The bounding box of the image.
+            </summary>
+            <remarks>Position and dimensions are represented in pts.</remarks>
+        </member>
+        <member name="T:IronSoftware.Abstractions.IDocument">
+            <summary>
+            General interface for documents.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.IDocumentObject">
+            <summary>
+            General object found within a document.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.IDocumentObjectCollection`1">
+            <summary>
+            Collection of document objects.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.IDocumentObjectCollection`1.Item(System.Int32)">
+            <summary>
+            Gets the element at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the element to get.</param>
+        </member>
+        <member name="T:IronSoftware.Abstractions.IDocumentObjectProperty">
+            <summary>
+            A property for a document object.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.IFont">
+            <summary>
+            Represents a general font object.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.IFont.Name">
+            <summary>
+            The name of the font.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.IJsonSerializable">
+            <summary>
+            Serializable to JSON.
+            </summary>
+        </member>
+        <member name="M:IronSoftware.Abstractions.IJsonSerializable.ToJson">
+            <summary>
+            Convert this object to JSON.
+            </summary>
+            <returns>JSON string representing the object.</returns>
+        </member>
+        <member name="T:IronSoftware.Abstractions.IParent`2">
+            <summary>
+            An object that can contain children.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.IParent`2.Children">
+            <summary>
+            The children of the parent.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.PathSegmentTypes">
+            <summary>
+            Type of path segment, determining how the path is drawn
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.PathSegmentTypes.Unknown">
+            <summary>
+            Unknown path segment type
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.PathSegmentTypes.LineTo">
+            <summary>
+            Represents a component of a straight line
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.PathSegmentTypes.BezierTo">
+            <summary>
+            Represents a component of a bezier curve
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.PathSegmentTypes.MoveTo">
+            <summary>
+            Represents a jump to a new point
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.PathFillModes">
+            <summary>
+            Fill mode, determines how portions are considered "inside" or "outside" of the path area
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.PathFillModes.Unknown">
+            <summary>
+            Unknown path fill mode.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.PathFillModes.None">
+            <summary>
+            Don't fill the path.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.PathFillModes.Alternate">
+            <summary>
+            Fills regions with an odd number of ray intersections.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.PathFillModes.Winding">
+            <summary>
+            Fills regions which have a non-zero segment intersection count.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.IPathSegment">
+            <summary>
+            Segment of a path.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.IPathSegment.Coordinate">
+            <summary>
+            Coordinate associated with this path segment.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.IPathSegment.IsClose">
+            <summary>
+            True if this segment closes the path.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.IPathSegment.SeparateFromPrevious">
+            <summary>
+            If the point previous to this one connects to it or not.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.ILineSegment">
+            <summary>
+            Segment of a linear path.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.IBezierSegment">
+            <summary>
+            Segment of a Bezier path.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Ocr.IOcrEngine">
+            <summary>
+            OCR engine
+            </summary>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Ocr.IOcrEngine.Read(IronSoftware.Abstractions.Pdf.IDocumentId)">
+            <summary>
+            OCR the specified PDF document and return the result
+            </summary>
+            <param name="Document">Document to OCR</param>
+            <returns>OCR result</returns>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Ocr.IOcrResult">
+            <summary>
+            Ocr results
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Ocr.IOcrResult.Confidence">
+            <summary>
+            Confidence percentage (0 - 100%)
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Ocr.IOcrResult.Text">
+            <summary>
+            Result text
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Pdf.DocumentId">
+            <summary>
+            Pdf document identifier
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.DocumentId.IsValid">
+            <inheritdoc/>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.DocumentId.NativeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.DocumentId.RemoteId">
+            <inheritdoc/>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.DocumentId.ReferenceType">
+            <summary>
+            Pdf document identifier type (local or remote)
+            </summary>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Pdf.DocumentId.IncrementReference">
+            <inheritdoc/>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Pdf.DocumentId.#ctor(System.Int32)">
+            <summary>
+            Create a new Pdf document identifier instance from a local document
+            </summary>
+            <param name="nativeId">Local identifier</param>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Pdf.DocumentId.#ctor(System.String)">
+            <summary>
+            Create a new Pdf document identifier instance from a remote document
+            </summary>
+            <param name="remoteId">Remote identifier</param>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Pdf.DocumentId.#ctor(IronSoftware.Abstractions.Pdf.IDocumentId)">
+            <summary>
+            Copy a Pdf document identifier
+            </summary>
+            <param name="id">Identifier to copy</param>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Pdf.DocumentId.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Pdf.DocumentId.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Pdf.DocumentId.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Pdf.DocumentId.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Pdf.DocumentReferenceType">
+            <summary>
+            Document type
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Pdf.DocumentReferenceType.Native">
+            <summary>
+            Native document (in memory)
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Pdf.DocumentReferenceType.Remote">
+            <summary>
+            Remote document identifier
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Pdf.IDocumentCharCollection">
+            <summary>
+            Collection of characters
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Pdf.IDocumentCharacter">
+            <summary>
+            Document character
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentCharacter.Left">
+            <summary>
+            Left (exact) bounding position
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentCharacter.Right">
+            <summary>
+            Right (exact) bounding position
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentCharacter.Top">
+            <summary>
+            Top (exact) bounding position
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentCharacter.Bottom">
+            <summary>
+            Bottom (exact) bounding position
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentCharacter.LooseLeft">
+            <summary>
+            Left (loose) bounding position
+            </summary>
+            <remarks>The entire vertical area any glyph of a font could occupy</remarks>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentCharacter.LooseRight">
+            <summary>
+            Right (loose) bounding position
+            </summary>
+            <remarks>The entire vertical area any glyph of a font could occupy</remarks>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentCharacter.LooseTop">
+            <summary>
+            Top (loose) bounding position
+            </summary>
+            <remarks>The entire vertical area any glyph of a font could occupy</remarks>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentCharacter.LooseBottom">
+            <summary>
+            Bottom (loose) bounding position
+            </summary>
+            <remarks>The entire vertical area any glyph of a font could occupy</remarks>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentCharacter.Contents">
+            <summary>
+            Text contents
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentCharacter.Angle">
+            <summary>
+            Rotation angle
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Pdf.IDocumentFontObjectCollection">
+            <summary>
+            Collection of font objects
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Pdf.IDocumentFontObject">
+            <summary>
+            Font as it exists within a document
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentFontObject.FontData">
+            <summary>
+            Font file data
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentFontObject.IsEmbedded">
+            <summary>
+            All font data is embedded within the document
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentFontObject.FontSize">
+            <summary>
+            The size of the font.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Pdf.IDocumentId">
+            <summary>
+            Document identifier
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentId.IsValid">
+            <summary>
+            Document identifier is valid
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentId.NativeId">
+            <summary>
+            Internal native document identifier
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentId.RemoteId">
+            <summary>
+            Internal remote document identifier
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentId.ReferenceType">
+            <summary>
+            Document reference type
+            </summary>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Pdf.IDocumentId.IncrementReference">
+            <summary>
+            Increment internal reference counter
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Pdf.DocumentImageFormats">
+            <summary>
+            Commonly accepted image formats for all documents
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Pdf.DocumentImageFormats.Unknown">
+            <summary>
+            Unknown format - may or may not be accepted
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Pdf.DocumentImageFormats.Bitmap">
+            <summary>
+            Standard bitmap format with uncompressed pixel data
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Pdf.DocumentImageFormats.Jpeg">
+            <summary>
+            Standard compressed jpeg format
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Pdf.IDocumentImageObjectCollection`1">
+            <summary>
+            Collection of image objects
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Pdf.IDocumentImageObject">
+            <summary>
+            Document image object
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentImageObject.Image">
+            <summary>
+            Image object
+            </summary>
+            <remarks>Modifiable</remarks>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Pdf.IDocumentPageObjectModel`3">
+            <summary>
+            Object model necessary to represent all contents on a given page
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentPageObjectModel`3.PageIndex">
+            <summary>
+            Page index
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentPageObjectModel`3.ImageObjects">
+            <summary>
+            Image object collection for this page
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentPageObjectModel`3.PathObjects">
+            <summary>
+            Path object collection for this page
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentPageObjectModel`3.TextObjects">
+            <summary>
+            Text object collection for this page
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Pdf.IDocumentPathObjectCollection`1">
+            <summary>
+            Collection of path objects
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Pdf.IDocumentPathObject">
+            <summary>
+            Document path object
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentPathObject.FillMode">
+            <summary>
+            Fill mode (see <see cref="T:IronSoftware.Abstractions.PathFillModes"/>
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentPathObject.IsStroked">
+            <summary>
+            True if the path is stroked
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentPathObject.Points">
+            <summary>
+            Path points
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Pdf.TextRenderModes">
+            <summary>
+            Text rendering modes
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Pdf.TextRenderModes.Unknown">
+            <summary>
+            Unknown text rendering mode
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Pdf.TextRenderModes.Fill">
+            <summary>
+            Fill the text area
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Pdf.TextRenderModes.Stroke">
+            <summary>
+            Stroke the text area
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Pdf.TextRenderModes.FillStroke">
+            <summary>
+            Fill and stroke the text area
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Pdf.TextRenderModes.Invisible">
+            <summary>
+            Invisible text
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Pdf.TextRenderModes.FillClip">
+            <summary>
+            Fill the text area and clip
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Pdf.TextRenderModes.StrokeClip">
+            <summary>
+            Stroke the text area and clip
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Pdf.TextRenderModes.FillStrokeClip">
+            <summary>
+            Fill and stroke the text area and clip
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Pdf.TextRenderModes.Clip">
+            <summary>
+            Clip the text area
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Pdf.IDocumentTextObjectCollection`1">
+            <summary>
+            Collection of text objects
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Pdf.IDocumentTextObject">
+            <summary>
+            Document text object
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentTextObject.ContentStart">
+            <summary>
+            Index of the first character (of this text object) into the complete text of the encapsulating container
+            </summary>
+            <remarks>Useful for ordering text objects and associating with individual character info</remarks>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentTextObject.Contents">
+            <summary>
+            Text contents
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentTextObject.Font">
+            <summary>
+            Font
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentTextObject.FontSize">
+            <summary>
+            Font size
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentTextObject.IsBold">
+            <summary>
+            Text is bold
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentTextObject.IsItalic">
+            <summary>
+            Text is italic (slanted)
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentTextObject.RenderMode">
+            <summary>
+            Text render mode
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Pdf.IDocumentWithExtractableText">
+            <summary>
+            Document with a number of pages which contain extractable text
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IDocumentWithExtractableText.PageCount">
+            <summary>Gets the number of pages in the PDF document.</summary>
+            <value>The page count.</value>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Pdf.IDocumentWithExtractableText.ExtractTextFromPage(System.Int32)">
+            <summary>
+            Extracts the text content from one page of the PDF and returns it as a string.
+            </summary>
+            <param name="PageIndex">Index of the page.  Note: Page 1 has index 0...</param>
+            <returns>The text extracted from the PDF page as a string.</returns>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Pdf.IDocumentWithExtractableText.ExtractTextFromPages(System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Extracts the written text content from specified pages in the PDF PDF and returns it as a string.   Pages
+            will be separated by 4 consecutive Environment.NewLines
+            </summary>
+            <param name="PageIndices">An IEnumerable list of page indexes.</param>
+            <returns>The text extracted from the PDF pages as a string.</returns>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Pdf.IExtensibleRenderer">
+            <summary>
+            Extensible rendering interface
+            </summary>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Pdf.IExtensibleRenderer.RenderHtmlAsPdfForExtension(System.String)">
+            <summary>
+            Internal helper method for converting various document types to PDF via intermediate HTML
+            </summary>
+            <param name="Html">Html to convert</param>
+            <returns>Pdf document identifier</returns>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Pdf.IExtensibleRenderer.RenderHtmlAsPdfForExtensionAsync(System.String)">
+            <summary>
+            Internal helper method for asynchronously converting various document types to PDF via intermediate HTML
+            </summary>
+            <param name="Html">Html to convert</param>
+            <returns>Pdf document identifier (task)</returns>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Pdf.IPageContainer">
+            <summary>
+            Document page with physical dimensions and an identifying page index.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IPageContainer.Width">
+            <summary>
+            Document width
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IPageContainer.Height">
+            <summary>
+            Document height
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IPageContainer.PageIndex">
+            <summary>
+            Index of this page
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IPageContainer.MarginLeft">
+            <summary>
+            Document left margin
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IPageContainer.MarginRight">
+            <summary>
+            Document right margin
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IPageContainer.MarginTop">
+            <summary>
+            Document top margin
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IPageContainer.MarginBottom">
+            <summary>
+            Document bottom margin
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Pdf.IPdfDocument">
+            <summary>
+            A PDF document.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IPdfDocument.DocumentId">
+            <summary>
+            Document identifier
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Pdf.IBoundedPdfDocumentObject">
+            <summary>
+            Document object with bounds
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IBoundedPdfDocumentObject.ZOrder">
+            <summary>
+            Determines whether the object is rendered in-front-of or behind existing content.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IBoundedPdfDocumentObject.ZPosition">
+            <summary>
+            The z-position of the object in its relative z-order (Background, Foreground, NotSpecified). The higher the number, the farther on top the object is drawn.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Pdf.IPdfDocumentObject">
+            <summary>
+            Document object
+            <para>
+            A unique and specific object existing within a document
+            </para>
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IPdfDocumentObject.ObjNum">
+            <summary>
+            Internal object number
+            </summary>
+            <remarks>Typically refers to a unique identifier but in some cases can refer to an index</remarks>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IPdfDocumentObject.PageIndex">
+            <summary>
+            Index of the page which contains the object
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IPdfDocumentObject.DocumentId">
+            <summary>
+            Document identifier
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Pdf.IPdfPathSegment">
+            <summary>
+            A segment of a path for a PDF.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Pdf.IPdfPathSegment.Type">
+            <summary>
+            The type of the path (MoveTo, LineTo, BezierTo).
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.RelativeZOrder">
+            <summary>
+            Specifies the relative Z-order of an object.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.RelativeZOrder.Background">
+            <summary>
+            Draw the object in the background of a document.
+            </summary>
+            <remarks>Objects are drawn behind both unspecified and foreground objects.</remarks>
+        </member>
+        <member name="F:IronSoftware.Abstractions.RelativeZOrder.NotSpecified">
+            <summary>
+            Z-order is not specified.
+            </summary>
+            <remarks>Objects with this Z-order are drawn in-between background and foreground objects, in the order they are chosen to be drawn. Document text is usually marked as this.</remarks>
+        </member>
+        <member name="F:IronSoftware.Abstractions.RelativeZOrder.Foreground">
+            <summary>
+            Draw the object in the foreground of a document.
+            </summary>
+            <remarks>Objects are drawn in front of both unspecified and foreground objects.</remarks>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Relative.IDocumentElementCollection`1">
+            <summary>
+            Collection of document elements
+            </summary>
+            <typeparam name="ElementType">Element object type</typeparam>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Relative.IDocumentElementCollection`1.Item(System.Int32)">
+            <summary>
+            Indexer to access pages by index
+            </summary>
+            <param name="index">Page index</param>
+            <returns>Document page</returns>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Relative.IDocumentElement">
+            <summary>
+            Single element within a layout
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Relative.IDocumentLayoutContainer`2">
+            <summary>
+            Container of elements to experience layout
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Relative.IDocumentLayoutContainer`2.Height">
+            <summary>
+            Document height, in millimeters (mm)
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Relative.IDocumentLayoutContainer`2.Width">
+            <summary>
+            Document width, in millimeters (mm)
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Relative.IDocumentLayoutFriendly">
+            <summary>
+            Attributes for assisting layout and positioning of an object within a laid out document
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Relative.IDocumentLayoutFriendly.AnchorOrigin">
+            <summary>
+            Determines how the object's origin is transformed
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Relative.IDocumentLayoutFriendly.AnchorStyle">
+            <summary>
+            Determines how the object is laid out within the document
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Relative.IDocumentParagraph">
+            <summary>
+            Document paragraph
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Relative.IDocumentParagraph.DefaultFontSize">
+            <summary>
+            Default font size (pt)
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Relative.IDocumentParagraph.DefaultFontName">
+            <summary>
+            Default font name
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Relative.IDocumentParagraph.DefaultFontIsBold">
+            <summary>
+            Default font is bold
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Relative.IDocumentParagraph.DefaultFontIsItalic">
+            <summary>
+            Default font is italic
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Relative.IDocumentParagraph.FirstLineIndentation">
+            <summary>
+            Indentation of the first line, in inches
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Relative.IDocumentParagraph.LineSpacing">
+            <summary>
+            Spacing between lines, in points
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Relative.IDocumentParagraph.SpacingAfter">
+            <summary>
+            Spacing after this paragraph, in points
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Relative.IDocumentParagraph.SpacingBefore">
+            <summary>
+            Spacing before this paragraph, in points
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Relative.IDocumentParagraph.HorizontalContentAlignment">
+            <summary>
+            Alignment of text within the paragraph
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Relative.LayoutAnchorStyles">
+            <summary>
+            Specifies anchor styles for determining how to transform the origin of an object
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Relative.LayoutAnchorStyles.Unspecified">
+            <summary>
+            Anchor style is unspecified - use the default for the target document type
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Relative.LayoutAnchorStyles.Inline">
+            <summary>
+            Flow the object in a matter consistent with the existing content
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Relative.LayoutAnchorStyles.Floating">
+            <summary>
+            Use an absolute position to place the object at a specific location
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Relative.LayoutAnchorOrigins">
+            <summary>
+            Specifies anchor origins for determining how to transform the origin of an object
+            </summary>
+            <remarks>Only applicable for `LayoutAnchorStyles.FloatOnContent`</remarks>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Relative.LayoutAnchorOrigins.Page">
+            <summary>
+            Anchor to the top-left corner of the page
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Relative.LayoutAnchorOrigins.Margin">
+            <summary>
+            Anchor to the top-left corner of the editable page area (excluding margins)
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Relative.LayoutAnchorOrigins.Paragraph">
+            <summary>
+            Anchor to the top-left corner of the current paragraph
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Styling.VerticalAlignments">
+            <summary>
+            Vertical alignment of an item within a parent container
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Styling.VerticalAlignments.Top">
+            <summary>
+            Align item to the top of the parent container (or bottom of previous child)
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Styling.VerticalAlignments.Center">
+            <summary>
+            Align item to the vertical center of the parent container (adjacent to other children)
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Styling.VerticalAlignments.Bottom">
+            <summary>
+            Align item to the bottom of the parent container (or top of previous child)
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Styling.VerticalAlignments.Stretch">
+            <summary>
+            Stretch item vertically to fill the parent container (shared between other children)
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Styling.HorizontalAlignments">
+            <summary>
+            Horizontal alignment of an item within a parent container
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Styling.HorizontalAlignments.Left">
+            <summary>
+            Align item to the left of the parent container (or right of previous child)
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Styling.HorizontalAlignments.Center">
+            <summary>
+            Align item to the horizontal center of the parent container (adjacent to other children)
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Styling.HorizontalAlignments.Right">
+            <summary>
+            Align item to the right of the parent container (or left of previous child)
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Styling.HorizontalAlignments.Stretch">
+            <summary>
+            Stretch item horizontally to fill the parent container (shared between other children)
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.BreakValue">
+            <summary>
+            Values for breaks in a Word document.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.BreakValue.Page">
+            <summary>
+            Page break.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.BreakValue.Column">
+            <summary>
+            Column break.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.BreakValue.Line">
+            <summary>
+            Line break.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.ElementStatus">
+            <summary>
+            Represents the status of a content element.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ElementStatus.NoChange">
+            <summary>
+            The element has not been changed since it was created.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ElementStatus.New">
+            <summary>
+            The element is newly created.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ElementStatus.Updated">
+            <summary>
+            The element has been updated.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ElementStatus.Deleted">
+            <summary>
+            The element has been deleted.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.HorizontalAlignment">
+            <summary>
+            The possible horizontal alignment options for text and other elements.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.HorizontalAlignment.Left">
+            <summary>
+            The text or element will be aligned to the left side of its container.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.HorizontalAlignment.Center">
+            <summary>
+            The text or element will be horizontally centered within its container.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.HorizontalAlignment.Right">
+            <summary>
+            The text or element will be aligned to the right side of its container.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.HorizontalRelativePositionOrigin">
+            <summary>
+            The part of the document where the relative horizontal position of an object originates from.
+            </summary>
+            <remarks>Corresponds to the HorizontalRelativePositionValues of OpenXML.</remarks>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.HorizontalRelativePositionOrigin.Margin">
+            <summary>
+            Relative horizontal origin is the margin.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.HorizontalRelativePositionOrigin.Page">
+            <summary>
+            Relative horizontal origin is the top-left of the page.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.HorizontalRelativePositionOrigin.Column">
+            <summary>
+            Relative horizontal origin is the column the object is contained in.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.HorizontalRelativePositionOrigin.Character">
+            <summary>
+            Relative horizontal origin is the run content.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.HorizontalRelativePositionOrigin.LeftMargin">
+            <summary>
+            Relative horizontal origin is the document's left margin.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.HorizontalRelativePositionOrigin.RightMargin">
+            <summary>
+            Relative horizontal origin is the document's right margin.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.HorizontalRelativePositionOrigin.InsideMargin">
+            <summary>
+            Relative origin is the document's inside margin (left margin on odd pages, right margin on even).
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.HorizontalRelativePositionOrigin.OutsideMargin">
+            <summary>
+            Relative origin is the document's outside margin (right margin on odd pages, left margin on even).
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.HorizontalRelativePositionOrigin.NotSpecified">
+            <summary>
+            Relative origin is not specified for this object.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.JustificationValues">
+            <summary>
+            Represents the justification options for text within a table cell.
+            Justification affects the horizontal spacing of the text within the cell.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.JustificationValues.Left">
+            <summary>
+            Aligns the text to the left of the cell.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.JustificationValues.Start">
+            <summary>
+            Aligns the text to the start of the cell (Left for Left-to-Right, Right for Right-to-Left).
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.JustificationValues.Center">
+            <summary>
+            Aligns the text to the center of the cell.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.JustificationValues.Right">
+            <summary>
+            Aligns the text to the right of the cell.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.JustificationValues.End">
+            <summary>
+            Aligns the text to the end of the cell (Right for Left-to-Right, Left for Right-to-Left).
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.JustificationValues.Both">
+            <summary>
+            Justifies the text on both sides of the cell, expanding the spacing between words as needed.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.JustificationValues.MediumKashida">
+            <summary>
+            Justifies the text with medium Kashida spacing, a specific form of letter spacing used in Arabic and other languages with similar writing systems.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.JustificationValues.Distribute">
+            <summary>
+            Distributes the text evenly across the cell, with equal spacing between all characters.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.JustificationValues.NumTab">
+            <summary>
+            Justifies the text with a specific number of tabs inserted between words, as defined by the NumTab property.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.JustificationValues.HighKashida">
+            <summary>
+            Justifies the text with high Kashida spacing, another form of letter spacing used in Arabic and other languages with similar writing systems.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.JustificationValues.LowKashida">
+            <summary>
+            Justifies the text with low Kashida spacing, another form of letter spacing used in Arabic and other languages with similar writing systems.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.JustificationValues.ThaiDistribute">
+            <summary>
+            Justifies the text with Thai Distribute spacing, a specific form of letter spacing used in the Thai language.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.ShadingPatternValues">
+            <summary>
+            Enumeration of shading pattern values.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Clear">
+            <summary>
+            No pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.DiagonalCross">
+            <summary>
+            Diagonal cross shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.DiagonalStripe">
+            <summary>
+            Diagonal stripe shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.HorizontalCross">
+            <summary>
+            Horizontal cross shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.HorizontalStripe">
+            <summary>
+            Horizontal stripe shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Nil">
+            <summary>
+            No shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Percent5">
+            <summary>
+            5 percent shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Percent10">
+            <summary>
+            10 percent shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Percent12">
+            <summary>
+            12 percent shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Percent15">
+            <summary>
+            15 percent shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Percent20">
+            <summary>
+            20 percent shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Percent25">
+            <summary>
+            25 percent shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Percent30">
+            <summary>
+            30 percent shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Percent35">
+            <summary>
+            35 percent shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Percent37">
+            <summary>
+            37 percent shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Percent40">
+            <summary>
+            40 percent shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Percent45">
+            <summary>
+            45 percent shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Percent50">
+            <summary>
+            50 percent shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Percent55">
+            <summary>
+            55 percent shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Percent60">
+            <summary>
+            60 percent shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Percent62">
+            <summary>
+            62 percent shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Percent65">
+            <summary>
+            65 percent shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Percent70">
+            <summary>
+            70 percent shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Percent75">
+            <summary>
+            75 percent shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Percent80">
+            <summary>
+            80 percent shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Percent85">
+            <summary>
+            85 percent shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Percent87">
+            <summary>
+            87 percent shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Percent90">
+            <summary>
+            90 percent shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Percent95">
+            <summary>
+            95 percent shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.ReverseDiagonalStripe">
+            <summary>
+            Reverse diagonal stripe shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.Solid">
+            <summary>
+            0 percent shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.ThinDiagonalCross">
+            <summary>
+            Thin diagonal crosshatch shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.ThinDiagonalStripe">
+            <summary>
+            Thin diagonal stripe shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.ThinHorizontalCross">
+            <summary>
+            Thin horizontal crosshatch shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.ThinHorizontalStripe">
+            <summary>
+            Thin horizontal stripe shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.ThinReverseDiagonalStripe">
+            <summary>
+            Thin reverse diagonal stripe shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.ThinVerticalStripe">
+            <summary>
+            Thin vertical stripe shading pattern.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShadingPatternValues.VerticalStripe">
+            <summary>
+            Vertical stripe shading pattern.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.ShapeType">
+            <summary>
+            Represents the various types of shapes.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Line">
+            <summary>
+            Line Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.LineInverse">
+            <summary>
+            Line Inverse Shape.
+            </summary>      
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Triangle">
+            <summary>
+            Triangle Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.RightTriangle">
+            <summary>
+            Right Triangle Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Rectangle">
+            <summary>
+            Rectangle Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Diamond">
+            <summary>
+            Diamond Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Parallelogram">
+            <summary>
+            Parallelogram Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Trapezoid">
+            <summary>
+            Trapezoid Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.NonIsoscelesTrapezoid">
+            <summary>
+            Non-Isosceles Trapezoid Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Pentagon">
+            <summary>
+            Pentagon Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Hexagon">
+            <summary>
+            Hexagon Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Heptagon">
+            <summary>
+            Heptagon Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Octagon">
+            <summary>
+            Octagon Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Decagon">
+            <summary>
+            Decagon Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Dodecagon">
+            <summary>
+            Dodecagon Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Star4">
+            <summary>
+            Four Pointed Star Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Star5">
+            <summary>
+            Five Pointed Star Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Star6">
+            <summary>
+            Six Pointed Star Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Star7">
+            <summary>
+            Seven Pointed Star Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Star8">
+            <summary>
+            Eight Pointed Star Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Star10">
+            <summary>
+            Ten Pointed Star Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Star12">
+            <summary>
+            Twelve Pointed Star Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Star16">
+            <summary>
+            Sixteen Pointed Star Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Star24">
+            <summary>
+            Twenty Four Pointed Star Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Star32">
+            <summary>
+            Thirty Two Pointed Star Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.RoundRectangle">
+            <summary>
+            Round Corner Rectangle Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Round1Rectangle">
+            <summary>
+            One Round Corner Rectangle Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Round2SameRectangle">
+            <summary>
+            Two Same-side Round Corner Rectangle Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Round2DiagonalRectangle">
+            <summary>
+            Two Diagonal Round Corner Rectangle Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.SnipRoundRectangle">
+            <summary>
+            One Snip One Round Corner Rectangle Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Snip1Rectangle">
+            <summary>
+            One Snip Corner Rectangle Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Snip2SameRectangle">
+            <summary>
+            Two Same-side Snip Corner Rectangle Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Snip2DiagonalRectangle">
+            <summary>
+            Two Diagonal Snip Corner Rectangle Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Plaque">
+            <summary>
+            Plaque Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Ellipse">
+            <summary>
+            Ellipse Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Teardrop">
+            <summary>
+            Teardrop Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.HomePlate">
+            <summary>
+            Home Plate Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Chevron">
+            <summary>
+            Chevron Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.PieWedge">
+            <summary>
+            Pie Wedge Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Pie">
+            <summary>
+            Pie Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.BlockArc">
+            <summary>
+            Block Arc Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Donut">
+            <summary>
+            Donut Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.NoSmoking">
+            <summary>
+            No Smoking Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.RightArrow">
+            <summary>
+            Right Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.LeftArrow">
+            <summary>
+            Left Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.UpArrow">
+            <summary>
+            Up Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.DownArrow">
+            <summary>
+            Down Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.StripedRightArrow">
+            <summary>
+            Striped Right Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.NotchedRightArrow">
+            <summary>
+            Notched Right Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.BentUpArrow">
+            <summary>
+            Bent Up Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.LeftRightArrow">
+            <summary>
+            Left Right Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.UpDownArrow">
+            <summary>
+            Up Down Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.LeftUpArrow">
+            <summary>
+            Left Up Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.LeftRightUpArrow">
+            <summary>
+            Left Right Up Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.QuadArrow">
+            <summary>
+            Quad-Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.LeftArrowCallout">
+            <summary>
+            Callout Left Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.RightArrowCallout">
+            <summary>
+            Callout Right Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.UpArrowCallout">
+            <summary>
+            Callout Up Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.DownArrowCallout">
+            <summary>
+            Callout Down Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.LeftRightArrowCallout">
+            <summary>
+            Callout Left Right Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.UpDownArrowCallout">
+            <summary>
+            Callout Up Down Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.QuadArrowCallout">
+            <summary>
+            Callout Quad-Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.BentArrow">
+            <summary>
+            Bent Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.UTurnArrow">
+            <summary>
+            U-Turn Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.CircularArrow">
+            <summary>
+            Circular Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.LeftCircularArrow">
+            <summary>
+            Left Circular Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.LeftRightCircularArrow">
+            <summary>
+            Left Right Circular Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.CurvedRightArrow">
+            <summary>
+            Curved Right Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.CurvedLeftArrow">
+            <summary>
+            Curved Left Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.CurvedUpArrow">
+            <summary>
+            Curved Up Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.CurvedDownArrow">
+            <summary>
+            Curved Down Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.SwooshArrow">
+            <summary>
+            Swoosh Arrow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Cube">
+            <summary>
+            Cube Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Can">
+            <summary>
+            Can Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.LightningBolt">
+            <summary>
+            Lightning Bolt Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Heart">
+            <summary>
+            Heart Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Sun">
+            <summary>
+            Sun Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Moon">
+            <summary>
+            Moon Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.SmileyFace">
+            <summary>
+            Smiley Face Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.IrregularSeal1">
+            <summary>
+            Irregular Seal 1 Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.IrregularSeal2">
+            <summary>
+            Irregular Seal 2 Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FoldedCorner">
+            <summary>
+            Folded Corner Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Bevel">
+            <summary>
+            Bevel Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Frame">
+            <summary>
+            Frame Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.HalfFrame">
+            <summary>
+            Half Frame Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Corner">
+            <summary>
+            Corner Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.DiagonalStripe">
+            <summary>
+            Diagonal Stripe Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Chord">
+            <summary>
+            Chord Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Arc">
+            <summary>
+            Curved Arc Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.LeftBracket">
+            <summary>
+            Left Bracket Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.RightBracket">
+            <summary>
+            Right Bracket Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.LeftBrace">
+            <summary>
+            Left Brace Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.RightBrace">
+            <summary>
+            Right Brace Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.BracketPair">
+            <summary>
+            Bracket Pair Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.BracePair">
+            <summary>
+            Brace Pair Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.StraightConnector1">
+            <summary>
+            Straight Connector 1 Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.BentConnector2">
+            <summary>
+            Bent Connector 2 Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.BentConnector3">
+            <summary>
+            Bent Connector 3 Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.BentConnector4">
+            <summary>
+            Bent Connector 4 Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.BentConnector5">
+            <summary>
+            Bent Connector 5 Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.CurvedConnector2">
+            <summary>
+            Curved Connector 2 Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.CurvedConnector3">
+            <summary>
+            Curved Connector 3 Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.CurvedConnector4">
+            <summary>
+            Curved Connector 4 Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.CurvedConnector5">
+            <summary>
+            Curved Connector 5 Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Callout1">
+            <summary>
+            Callout 1 Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Callout2">
+            <summary>
+            Callout 2 Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Callout3">
+            <summary>
+            Callout 3 Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.AccentCallout1">
+            <summary>
+            Callout 1 Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.AccentCallout2">
+            <summary>
+            Callout 2 Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.AccentCallout3">
+            <summary>
+            Callout 3 Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.BorderCallout1">
+            <summary>
+            Callout 1 with Border Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.BorderCallout2">
+            <summary>
+            Callout 2 with Border Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.BorderCallout3">
+            <summary>
+            Callout 3 with Border Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.AccentBorderCallout1">
+            <summary>
+            Callout 1 with Border and Accent Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.AccentBorderCallout2">
+            <summary>
+            Callout 2 with Border and Accent Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.AccentBorderCallout3">
+            <summary>
+            Callout 3 with Border and Accent Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.WedgeRectangleCallout">
+            <summary>
+            Callout Wedge Rectangle Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.WedgeRoundRectangleCallout">
+            <summary>
+            Callout Wedge Round Rectangle Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.WedgeEllipseCallout">
+            <summary>
+            Callout Wedge Ellipse Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.CloudCallout">
+            <summary>
+            Callout Cloud Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Cloud">
+            <summary>
+            Cloud Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Ribbon">
+            <summary>
+            Ribbon Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Ribbon2">
+            <summary>
+            Ribbon 2 Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.EllipseRibbon">
+            <summary>
+            Ellipse Ribbon Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.EllipseRibbon2">
+            <summary>
+            Ellipse Ribbon 2 Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.LeftRightRibbon">
+            <summary>
+            Left Right Ribbon Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.VerticalScroll">
+            <summary>
+            Vertical Scroll Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.HorizontalScroll">
+            <summary>
+            Horizontal Scroll Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Wave">
+            <summary>
+            Wave Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.DoubleWave">
+            <summary>
+            Double Wave Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Plus">
+            <summary>
+            Plus Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartProcess">
+            <summary>
+            Process Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartDecision">
+            <summary>
+            Decision Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartInputOutput">
+            <summary>
+            Input Output Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartPredefinedProcess">
+            <summary>
+            Predefined Process Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartInternalStorage">
+            <summary>
+            Internal Storage Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartDocument">
+            <summary>
+            Document Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartMultidocument">
+            <summary>
+            Multi-Document Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartTerminator">
+            <summary>
+            Terminator Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartPreparation">
+            <summary>
+            Preparation Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartManualInput">
+            <summary>
+            Manual Input Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartManualOperation">
+            <summary>
+            Manual Operation Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartConnector">
+            <summary>
+            Connector Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartPunchedCard">
+            <summary>
+            Punched Card Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartPunchedTape">
+            <summary>
+            Punched Tape Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartSummingJunction">
+            <summary>
+            Summing Junction Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartOr">
+            <summary>
+            Or Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartCollate">
+            <summary>
+            Collate Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartSort">
+            <summary>
+            Sort Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartExtract">
+            <summary>
+            Extract Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartMerge">
+            <summary>
+            Merge Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartOfflineStorage">
+            <summary>
+            Offline Storage Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartOnlineStorage">
+            <summary>
+            Online Storage Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartMagneticTape">
+            <summary>
+            Magnetic Tape Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartMagneticDisk">
+            <summary>
+            Magnetic Disk Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartMagneticDrum">
+            <summary>
+            Magnetic Drum Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartDisplay">
+            <summary>
+            Display Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartDelay">
+            <summary>
+            Delay Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartAlternateProcess">
+            <summary>
+            Alternate Process Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.FlowChartOffpageConnector">
+            <summary>
+            Off-Page Connector Flow Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.ActionButtonBlank">
+            <summary>
+            Blank Button Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.ActionButtonHome">
+            <summary>
+            Home Button Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.ActionButtonHelp">
+            <summary>
+            Help Button Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.ActionButtonInformation">
+            <summary>
+            Information Button Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.ActionButtonForwardNext">
+            <summary>
+            Forward or Next Button Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.ActionButtonBackPrevious">
+            <summary>
+            Back or Previous Button Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.ActionButtonEnd">
+            <summary>
+            End Button Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.ActionButtonBeginning">
+            <summary>
+            Beginning Button Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.ActionButtonReturn">
+            <summary>
+            Return Button Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.ActionButtonDocument">
+            <summary>
+            Document Button Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.ActionButtonSound">
+            <summary>
+            Sound Button Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.ActionButtonMovie">
+            <summary>
+            Movie Button Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Gear6">
+            <summary>
+            Gear 6 Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Gear9">
+            <summary>
+            Gear 9 Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Funnel">
+            <summary>
+            Funnel Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.MathPlus">
+            <summary>
+            Plus Math Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.MathMinus">
+            <summary>
+            Minus Math Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.MathMultiply">
+            <summary>
+            Multiply Math Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.MathDivide">
+            <summary>
+            Divide Math Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.MathEqual">
+            <summary>
+            Equal Math Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.MathNotEqual">
+            <summary>
+            Not Equal Math Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.CornerTabs">
+            <summary>
+            Corner Tabs Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.SquareTabs">
+            <summary>
+            Square Tabs Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.PlaqueTabs">
+            <summary>
+            Plaque Tabs Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.ChartX">
+            <summary>
+            Chart X Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.ChartStar">
+            <summary>
+            Chart Star Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.ChartPlus">
+            <summary>
+            Chart Plus Shape.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ShapeType.Custom">
+            <summary>
+            Custom Shape.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.StyleType">
+            <summary>
+            The type of style a base style represents.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.StyleType.Paragraph">
+            <summary>
+            Paragraph style.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.StyleType.Text">
+            <summary>
+            Text style.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.StyleType.Table">
+            <summary>
+            Table style.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.StyleType.Numbering">
+            <summary>
+            Numbering style.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.TextAlignment">
+            <summary>
+            Specifies the text alignment for the text.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.TextAlignment.Left">
+            <summary>
+            The text is aligned to the left margin.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.TextAlignment.Center">
+            <summary>
+            The text is centered horizontally within its container.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.TextAlignment.Right">
+            <summary>
+            The text is aligned to the right margin.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.TextAlignment.Justified">
+            <summary>
+            The text is justified, meaning the spaces between words are adjusted to create clean, even margins on both the left and right sides of the text.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.TextWrapSide">
+            <summary>
+            Specifies which side of an object the text should wrap around.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.TextWrapSide.Both">
+            <summary>
+            Wrap around both sides.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.TextWrapSide.Left">
+            <summary>
+            Wrap around the left side.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.TextWrapSide.Right">
+            <summary>
+            Wrap around the right side.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.TextWrapSide.Largest">
+            <summary>
+            Wrap around the largest of the two sides.
+            </summary>
+            <remarks>If object is centered, the text wraps around the side where it's first encountered.</remarks>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.ThemeColorValues">
+            <summary>
+            Defines the ThemeColorValues enumeration.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ThemeColorValues.Dk1">
+            <summary>
+            Dark 1 Theme Color.
+            <para>When the item is serialized out as xml, its value is "dk1".</para>
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ThemeColorValues.Dark1">
+            <summary>
+            Dark 1 Theme Color.
+            <para>When the item is serialized out as xml, its value is "dark1".</para>
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ThemeColorValues.Lt1">
+            <summary>
+            Light 1 Theme Color.
+            <para>When the item is serialized out as xml, its value is "lt1".</para>
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ThemeColorValues.Light1">
+            <summary>
+            Light 1 Theme Color.
+            <para>When the item is serialized out as xml, its value is "light1".</para>
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ThemeColorValues.Dk2">
+            <summary>
+            Dark 2 Theme Color.
+            <para>When the item is serialized out as xml, its value is "dk2".</para>
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ThemeColorValues.Dark2">
+            <summary>
+            Dark 2 Theme Color.
+            <para>When the item is serialized out as xml, its value is "dark2".</para>
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ThemeColorValues.Lt2">
+            <summary>
+            Light 2 Theme Color.
+            <para>When the item is serialized out as xml, its value is "lt2".</para>
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ThemeColorValues.Light2">
+            <summary>
+            Light 2 Theme Color.
+            <para>When the item is serialized out as xml, its value is "light2".</para>
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ThemeColorValues.Accent1">
+            <summary>
+            Accent 1 Theme Color.
+            <para>When the item is serialized out as xml, its value is "accent1".</para>
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ThemeColorValues.Accent2">
+            <summary>
+            Accent 2 Theme Color.
+            <para>When the item is serialized out as xml, its value is "accent2".</para>
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ThemeColorValues.Accent3">
+            <summary>
+            Accent 3 Theme Color.
+            <para>When the item is serialized out as xml, its value is "accent3".</para>
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ThemeColorValues.Accent4">
+            <summary>
+            Accent 4 Theme Color.
+            <para>When the item is serialized out as xml, its value is "accent4".</para>
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ThemeColorValues.Accent5">
+            <summary>
+            Accent 5 Theme Color.
+            <para>When the item is serialized out as xml, its value is "accent5".</para>
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ThemeColorValues.Accent6">
+            <summary>
+            Accent 6 Theme Color.
+            <para>When the item is serialized out as xml, its value is "accent6".</para>
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ThemeColorValues.Hyperlink">
+            <summary>
+            Hyperlink Theme Color.
+            <para>When the item is serialized out as xml, its value is "hyperlink".</para>
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ThemeColorValues.FollowedHyperlink">
+            <summary>
+            Followed Hyperlink Theme Color.
+            <para>When the item is serialized out as xml, its value is "followedHyperlink".</para>
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ThemeColorValues.None">
+            <summary>
+            No Theme Color.
+            <para>When the item is serialized out as xml, its value is "none".</para>
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ThemeColorValues.Background1">
+            <summary>
+            Background 1 Theme Color.
+            <para>When the item is serialized out as xml, its value is "background1".</para>
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ThemeColorValues.Text1">
+            <summary>
+            Text 1 Theme Color.
+            <para>When the item is serialized out as xml, its value is "text1".</para>
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ThemeColorValues.Background2">
+            <summary>
+            Background 2 Theme Color.
+            <para>When the item is serialized out as xml, its value is "background2".</para>
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.ThemeColorValues.Text2">
+            <summary>
+            Text 2 Theme Color.
+            <para>When the item is serialized out as xml, its value is "text2".</para>
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.VerticalAlign">
+            <summary>
+            Represents the vertical alignment of text within a table cell.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.VerticalAlign.Top">
+            <summary>
+            Aligns the text to the top of the cell.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.VerticalAlign.Middle">
+            <summary>
+            Aligns the text to the middle of the cell vertically.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.VerticalAlign.Bottom">
+            <summary>
+            Aligns the text to the bottom of the cell.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.VerticalAlignment">
+            <summary>
+            The possible vertical alignment options for text and other elements.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.VerticalAlignment.Top">
+            <summary>
+            The text or element will be aligned to the top of its container.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.VerticalAlignment.Middle">
+            <summary>
+            The text or element will be vertically centered within its container.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.VerticalAlignment.Bottom">
+            <summary>
+            The text or element will be aligned to the bottom of its container.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.VerticalRelativePositionOrigin">
+            <summary>
+            The part of the document where the relative vertical position of an object originates from.
+            </summary>
+            <remarks>Corresponds to the VerticalRelativePositionValues of OpenXML.</remarks>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.VerticalRelativePositionOrigin.Margin">
+            <summary>
+            Relative vertical origin is the document's margin.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.VerticalRelativePositionOrigin.Page">
+            <summary>
+            Relative vertical origin is the top-left of the document page.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.VerticalRelativePositionOrigin.Paragraph">
+            <summary>  
+            Relative vertical origin is the top-left of the paragraph this object is contained in.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.VerticalRelativePositionOrigin.Line">
+            <summary>
+            Relative vertical origin is the line that contains the object.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.VerticalRelativePositionOrigin.TopMargin">
+            <summary>
+            Relative vertical origin is the document's top margin.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.VerticalRelativePositionOrigin.BottomMargin">
+            <summary>
+            Relative vertical origin is the document's bottom margin.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.VerticalRelativePositionOrigin.InsideMargin">
+            <summary>
+            Relative vertical origin is the document's inside margin.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.VerticalRelativePositionOrigin.OutsideMargin">
+            <summary>
+            Relative vertical origin is the document's outside margin.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.VerticalRelativePositionOrigin.NotSpecified">
+            <summary>
+            Relative vertical origin is not specified.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.VerticalTextAlignmentValues">
+            <summary>
+            Defines the VerticalTextAlignmentValues enumeration.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.VerticalTextAlignmentValues.Top">
+            <summary>
+            Align Text at Top.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.VerticalTextAlignmentValues.Center">
+            <summary>
+            Align Text at Center.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.VerticalTextAlignmentValues.Baseline">
+            <summary>
+            Align Text at Baseline.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.VerticalTextAlignmentValues.Bottom">
+            <summary>
+            Align Text at Bottom.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.VerticalTextAlignmentValues.Auto">
+            <summary>
+            Automatically Determine Alignment.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.IBreak">
+            <summary>
+            Represents a page break within a Word document.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IBreak.Type">
+            <summary>
+            The type of break (page, column, or line).
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.IColor">
+            <summary>
+            Color for word document objects.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IColor.ColorValue">
+            <summary>
+            Value of the color in string form.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.IDocumentSection">
+            <summary>
+            Represents a section within a word document. 
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IDocumentSection.Width">
+            <summary>
+            Width of the document section in points.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IDocumentSection.Height">
+            <summary>
+            Height of the document section in points.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IDocumentSection.LeftMargin">
+            <summary>
+            Left margin of the document section in points.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IDocumentSection.RightMargin">
+            <summary>
+            Right margin of the document section in points.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IDocumentSection.TopMargin">
+            <summary>
+            Top margin of the document section in points.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IDocumentSection.BottomMargin">
+            <summary>
+            Bottom margin of the document section in points.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.IFont">
+            <summary>
+            A font in a Word document.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.IImage">
+            <summary>
+            Represents an image object within a word document.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IImage.Image">
+            <summary>
+            The image content.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.IParagraph">
+            <summary>
+            Represents a paragraph within a word document
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IParagraph.FirstLineIndentation">
+            <summary>
+            The indentation for the first line of a paragraph in inches.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IParagraph.Alignment">
+            <summary>
+            The alignment of the text in the paragraph.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IParagraph.LineSpacing">
+            <summary>
+            The spacing of lines within the paragraph and between other paragraphs.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IParagraph.DefaultFontSize">
+            <summary>
+            The default size of the font in points.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.IRun">
+            <summary>
+            Represents a run within a word document
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IRun.IsBold">
+            <summary>
+            Whether the contents in the run are bold or not.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IRun.IsItalic">
+            <summary>
+            Whether the contents in the run are italic or not.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IRun.FontName">
+            <summary>
+            The name of the font of the text contents.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IRun.FontSize">
+            <summary>
+            The size of the font in points.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.IShading">
+            <summary>
+            Shading for word document objects.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IShading.Color">
+            <summary>
+            Color for the shading.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IShading.Fill">
+            <summary>
+            Color for the fill in the shading.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.IShape">
+            <summary>
+            Represents a shape within a word document.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IShape.Type">
+            <summary>
+            The type of the shape.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IShape.Points">
+            <summary>
+            Points of the shape.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.ITable">
+            <summary>
+            Represents a table within a word document.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITable.Rows">
+            <summary>
+            All the rows in the table.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITable.LeftCellMargin">
+            <summary>
+            Left cell margin.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITable.RightCellMargin">
+            <summary>
+            Right cell margin.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITable.TopCellMargin">
+            <summary>
+            Top cell margin.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITable.BottomCellMargin">
+            <summary>
+            Bottom cell margin.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITable.Width">
+            <summary>
+            The preferred width of the table.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.ITableCell">
+            <summary>
+            Represents a table cell within a word document.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITableCell.Width">
+            <summary>
+            The width of the table cell.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITableCell.TopMargin">
+            <summary>
+            Top margin of the table cell.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITableCell.BottomMargin">
+            <summary>
+            Bottom margin of the table cell.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITableCell.LeftMargin">
+            <summary>
+            Left margin of the table cell.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITableCell.RightMargin">
+            <summary>
+            Right margin of the table cell.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITableCell.Value">
+            <summary>
+            The value of the cell.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITableCell.GridSpan">
+            <summary>
+            The grid span of the table cell.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITableCell.Shading">
+            <summary>
+            Shading for the table cell.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITableCell.TextAlignment">
+            <summary>
+            Gets or sets the horizontal alignment of the text content within the cell.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITableCell.VerticalAlignment">
+            <summary>
+            Gets or sets the vertical alignment of the content within the cell.
+            </summary>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Word.ITableCell.InsertCellBeforeSelf(IronSoftware.Abstractions.Word.ITableCell)">
+            <summary>
+            Inserts a new TableCell before this cell within the parent row.
+            </summary>
+            <param name="cell">The TableCell object to be inserted before this cell.</param>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Word.ITableCell.InsertCellAfterSelf(IronSoftware.Abstractions.Word.ITableCell)">
+            <summary>
+            Inserts a new TableCell after this cell within the parent row.
+            </summary>
+            <param name="cell">The TableCell object to be inserted after this cell.</param>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Word.ITableCell.Split(System.Int32,System.Int32)">
+            <summary>
+            Splits a cell in the table into multiple rows and columns.
+            </summary>
+            <param name="toRow">The number of the row for the split.</param>
+            <param name="toColumn">The number of columns for the split.</param>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.ITableRow">
+            <summary>
+            Represents a table row within a word document.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITableRow.Cells">
+            <summary>
+            All the cells in this table row.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITableRow.Item(System.Int32)">
+            <summary>
+            Indexer for the row.
+            </summary>
+            <param name="index">Index of the row.</param>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Word.ITableRow.InsertRowAfterSelf(IronSoftware.Abstractions.Word.ITableRow)">
+            <summary>
+            Inserts a new table row after this row within the parent table.
+            </summary>
+            <param name="row">The table row object to be inserted after this row.</param>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Word.ITableRow.InsertRowAfterSelf">
+            <summary>
+            Inserts a new table row after this row within the parent table.
+            </summary>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Word.ITableRow.InsertRowBeforeSelf(IronSoftware.Abstractions.Word.ITableRow)">
+            <summary>
+            Inserts a new table row before this row within the parent table.
+            </summary>
+            <param name="row">The table row object to be inserted after this row.</param>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Word.ITableRow.InsertRowBeforeSelf">
+            <summary>
+            Inserts a new table row before this row within the parent table.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.IText">
+            <summary>
+            Represents a text object within a word document.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IText.Text">
+            <summary>
+            The text content.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IText.FontName">
+            <summary>
+            The name of the font.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IText.FontSize">
+            <summary>
+            The size of the font, measured in points.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IText.FontStyle">
+            <summary>
+            The style of the font (bold, italic, etc.)
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.ITextWrapBehavior">
+            <summary>
+            How the text should wrap around an object in a Word document.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.IWordAbsolute">
+            <summary>
+            An object in a Word document that can be absolutely positioned.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IWordAbsolute.HorizontalRelativePositionOrigin">
+            <summary>
+            The origin of the shape's relative horizontal position.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IWordAbsolute.VerticalRelativePositionOrigin">
+            <summary>
+            The origin of the shape's relative vertical position.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IWordAbsolute.ZOrder">
+            <summary>
+            The Z-order in which the shape is rendered.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IWordAbsolute.ZPosition">
+            <summary>
+            The z-position of the object in its relative z-order (Background, Foreground, NotSpecified). The higher the number, the farther on top the object is drawn.
+            </summary>
+            <remarks>This number is only compared with that of other objects with the same relative z-order.</remarks>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IWordAbsolute.TextWrapBehavior">
+            <summary>
+            How text should wrap around this object.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.IWordDocument">
+            <summary>
+            A Word document.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.IWordDocumentObject">
+            <summary>
+            An object found within a word document.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IWordDocumentObject.Status">
+            <summary>
+            The status of the document object.
+            </summary>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Word.IWordDocumentObject.Replace(IronSoftware.Abstractions.Word.IWordDocumentObject)">
+            <summary>
+            Replace this document object with another.
+            </summary>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Word.IWordDocumentObject.Remove">
+            <summary>
+            Marks this element as deleted.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.IWordDocumentObjectCollection">
+            <summary>
+            Collection of word document objects.
+            </summary>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Word.IWordDocumentObjectCollection.First">
+            <summary>
+            The first object in the document object collection.
+            </summary>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Word.IWordDocumentObjectCollection.Last">
+            <summary>
+            The last object in the document object collection.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.IWordDocumentObjectProperty">
+            <summary>
+            A property for a Word document object.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.IBaseStyle">
+            <summary>
+            Represents a base style definition.
+            </summary>
+            <remarks>Corresponds to "w:style" objects in OpenXML.</remarks>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IBaseStyle.StyleId">
+            <summary>
+            The ID of the style.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IBaseStyle.StyleType">
+            <summary>
+            The type of style this base style represents.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IBaseStyle.StyleName">
+            <summary>
+            The name of the style.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IBaseStyle.NextParagraphStyle">
+            <summary>
+            The name of the style to be applied to the next paragraph.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.IDerivedStyle">
+            <summary>
+            Represents a style for an individual object in a Word document.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.IParagraphStyle">
+            <summary>
+            Styling for paragraphs.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IParagraphStyle.LineSpacing">
+            <summary>
+            The spacing between lines within the paragraph.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IParagraphStyle.AdjustRightIndent">
+            <summary>
+            Indicates whether to adjust the right indent of the paragraph automatically or not.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IParagraphStyle.AutoSpaceLatinAndEast">
+            <summary>
+            Indicates whether to automatically adjust spacing between Latin characters and East Asian characters.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IParagraphStyle.AutoSpaceEastAndNumbers">
+            <summary>
+            Indicates whether to automatically adjust spacing between East Asian characters and numbers.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IParagraphStyle.RightToLeft">
+            <summary>
+            Indicates whether the text in the paragraph is right-to-left.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IParagraphStyle.ContextualSpacing">
+            <summary>
+            Indicates whether to enable contextual spacing for the paragraph.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IParagraphStyle.Justification">
+            <summary>
+            The justification alignment of the paragraph.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IParagraphStyle.TextAlignment">
+            <summary>
+            The vertical text alignment of the paragraph.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IParagraphStyle.KeepLinesOnPage">
+            <summary>
+            Indicates whether to keep all lines of the paragraph on the same page.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IParagraphStyle.KeepWithNextParagraph">
+            <summary>
+            Indicates whether to keep the paragraph with the next paragraph.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IParagraphStyle.Kinsoku">
+            <summary>
+            Indicates whether to apply kinsoku rules for the paragraph.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IParagraphStyle.MirrorIndents">
+            <summary>
+            Indicates whether to mirror the paragraph indents when the text direction is changed.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IParagraphStyle.OverflowPunctuation">
+            <summary>
+            Indicates whether to allow overflow punctuation for the paragraph.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IParagraphStyle.PageBreakBefore">
+            <summary>
+            Indicates whether to insert a page break before the paragraph.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IParagraphStyle.WordWrap">
+            <summary>
+            Indicates whether to enable word wrap for the paragraph.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.IParagraphStyle.OutlineLevel">
+            <summary>
+            The outline level for the paragraph.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.IStyle">
+            <summary>
+            Represents a style for an object in a Word document.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.ITableCellStyle">
+            <summary>
+            Styling for table cells.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITableCellStyle.Width">
+            <summary>
+            Width of the table cell.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITableCellStyle.TopMargin">
+            <summary>
+            The top margin of the cell.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITableCellStyle.BottomMargin">
+            <summary>
+            The bottom margin of the cell.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITableCellStyle.LeftMargin">
+            <summary>
+            The left margin of the cell.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITableCellStyle.RightMargin">
+            <summary>
+            The right margin of the cell.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.ITableRowStyle">
+            <summary>
+            Styling for table rows.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITableRowStyle.Height">
+            <summary>
+            The height of the table row.
+            </summary>
+            <remarks>If this value is null, the row will be automatically resized to fit its content.</remarks>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.ITableStyle">
+            <summary>
+            Styling for table objects.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITableStyle.Justification">
+            <summary>
+            Gets or sets the justification of the table.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITableStyle.Width">
+            <summary>
+            Gets or sets the preferred width of the table.
+            </summary>
+            <remarks>Stored in twips by default.</remarks>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITableStyle.LeftCellMargin">
+            <summary>
+            Gets or sets the margin between the left cell border and the cell contents.
+            </summary>
+            <remarks>Stored in twips by default.</remarks>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITableStyle.RightCellMargin">
+            <summary>
+            Gets or sets the margin between the right cell border and the cell contents.
+            </summary>
+            <remarks>Stored in twips by default.</remarks>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITableStyle.TopCellMargin">
+            <summary>
+            Gets or sets the margin between the top cell border and the cell contents.
+            </summary>
+            <remarks>Stored in twips by default.</remarks>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITableStyle.BottomCellMargin">
+            <summary>
+            Gets or sets the margin between the bottom cell border and the cell contents.
+            </summary>
+            <remarks>Stored in twips by default.</remarks>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.ITextStyle">
+            <summary>
+            Styling for text objects.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITextStyle.Caps">
+            <summary>
+            Indicates whether to display all characters in capital letters.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITextStyle.CharacterScale">
+            <summary>
+            The horizontal scaling percentage applied to the characters.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITextStyle.Emboss">
+            <summary>
+            Indicates whether to apply an embossed effect to the text.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITextStyle.Imprint">
+            <summary>
+            Indicates whether to apply an imprinted (engraved) effect to the text.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITextStyle.IsBold">
+            <summary>
+            Indicates whether to apply bold formatting to the text.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITextStyle.IsItalic">
+            <summary>
+            Indicates whether to apply italic formatting to the text.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITextStyle.Kern">
+            <summary>
+            The font kerning size.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITextStyle.Languages">
+            <summary>
+            The language settings for the text.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITextStyle.NoProof">
+            <summary>
+            Indicates whether to exclude the text from spelling and grammar checking.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITextStyle.Outline">
+            <summary>
+            Indicates whether to apply an outline effect to the text.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITextStyle.Shadow">
+            <summary>
+            Indicates whether to apply a shadow effect to the text.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITextStyle.SmallCaps">
+            <summary>
+            Indicates whether to format the text in small capital letters.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITextStyle.SnapToGrid">
+            <summary>
+            Indicates whether to snap the text to the document grid.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITextStyle.Spacing">
+            <summary>
+            The spacing between characters in twentieths of a point.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITextStyle.SpecVanish">
+            <summary>
+            Indicates whether to hide the text when displaying simplified document content.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITextStyle.Vanish">
+            <summary>
+            Indicates whether to hide the text.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITextStyle.VerticalPosition">
+            <summary>
+            The vertical position offset for superscript or subscript text.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITextStyle.WebHidden">
+            <summary>
+            Indicates whether to hide the text when the document is displayed as a web page.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITextStyle.FontSize">
+            <summary>
+            The size of the font.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.ITextStyle.FontSizeComplexScript">
+            <summary>
+            The size of the font for complex script.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.LineSpacingRules">
+            <summary>
+            Various ways to configure vertical line spacing
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.LineSpacingRules.Auto">
+            <summary>
+            Automatically determined line spacing
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.LineSpacingRules.Exact">
+            <summary>
+            Exact line spacing
+            </summary>
+        </member>
+        <member name="F:IronSoftware.Abstractions.Word.LineSpacingRules.AtLeast">
+            <summary>
+            Minimum line spacing
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.LineSpacing">
+            <summary>
+            Represents the spacing between lines in a paragraph.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.LineSpacing.EnableAutoSpacingAfterParagraph">
+            <summary>
+            Enable automatic spacing is applied after the paragraph.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.LineSpacing.EnableAutoSpacingBeforeParagraph">
+            <summary>
+            Enable automatic spacing is applied before the paragraph.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.LineSpacing.LinesAfterParagraph">
+            <summary>
+            Spacing after the paragraph, in number of lines.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.LineSpacing.LinesBeforeParagraph">
+            <summary>
+            Spacing before the paragraph, in number of lines.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.LineSpacing.LineSpacingRule">
+            <summary>
+            Rule for line spacing in the paragraph.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.LineSpacing.SpacingAfterParagraph">
+            <summary>
+            Spacing after the paragraph, in twentieths of a point.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.LineSpacing.SpacingBeforeParagraph">
+            <summary>
+            Spacing before the paragraph, in twentieths of a point.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.LineSpacing.SpacingBetweenLines">
+            <summary>
+            Spacing between the lines of the paragraph from the base of the font on one line to the next.
+            </summary>
+            <remarks>Line height would generally be the font size in points.
+            This value is divided over 240 to give the multiplicative factor that is multiplied by the line height for spacing.
+            </remarks>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Word.LineSpacing.#ctor">
+            <summary>
+            Create a new LineSpacing object.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.TextWrapNone">
+            <summary>
+            Text should not wrap around a drawing.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.TextWrapSquare">
+            <summary>
+            Text should wrap around a drawing in a rectangular manner.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.TextWrapSquare.DistanceFromLeft">
+            <summary>
+            Distance between text and left edge of the drawing.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.TextWrapSquare.DistanceFromRight">
+            <summary>
+            Distance between text and the right edge of the drawing.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.TextWrapSquare.DistanceFromTop">
+            <summary>
+            Distance between text and the top edge of the drawing.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.TextWrapSquare.DistanceFromBottom">
+            <summary>
+            Distance between text and the bottom edge of the drawing.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.TextWrapSquare.TextWrapSide">
+            <summary>
+            Which side of the object the text should wrap around.
+            </summary>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Word.TextWrapSquare.#ctor(System.Int64,System.Int64,System.Int64,System.Int64,IronSoftware.Abstractions.Word.TextWrapSide)">
+            <summary>
+            Instantiate a new <see cref="T:IronSoftware.Abstractions.Word.TextWrapSquare"/>.
+            </summary>
+            <param name="distanceFromLeft">Distance between text and the left edge of the drawing.</param>
+            <param name="distanceFromRight">Distance between text and the right edge of the drawing.</param>
+            <param name="distanceFromTop">Distance between text and the top edge of the drawing.</param>
+            <param name="distanceFromBottom">Distance between text and the bottom edge of the drawing.</param>
+            <param name="textWrapSide">Which sides of the drawing the wrap should apply to.</param>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Word.TextWrapTopAndBottom">
+            <summary>
+            Text should wrap around the object on the top and bottom, but not the sides.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.TextWrapTopAndBottom.DistanceFromTop">
+            <summary>
+            Distance from the top edge of the object to text.
+            </summary>
+            <remarks>Represented in English Metric Units.</remarks>
+        </member>
+        <member name="P:IronSoftware.Abstractions.Word.TextWrapTopAndBottom.DistanceFromBottom">
+            <summary>
+            Distance from the bottom edge of the object to text.
+            </summary>
+            <remarks>Represented in English Metric Units.</remarks>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Word.TextWrapTopAndBottom.#ctor(System.Int64,System.Int64)">
+            <summary>
+            Instantiates a new TextWrapAndBottom class.
+            </summary>
+            <param name="distanceFromTop">Distance from the top edge of the object to text, in English Metric Units.</param>
+            <param name="distanceFromBottom">Distance from the bottom edge of the object to text, in English Metric Units.</param>
+        </member>
+        <member name="T:IronSoftware.Abstractions.Zip.IFileArchive">
+            <summary>
+            File archive.
+            </summary>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Zip.IFileArchive.Extract(System.String)">
+            <summary>
+            Extract all files to the specified path
+            </summary>
+            <param name="Path">Path to extract files to</param>
+        </member>
+        <member name="M:IronSoftware.Abstractions.Zip.IFileArchive.GetBytes">
+            <summary>
+            Retrieve binary data for the current archive
+            </summary>
+            <returns>Archive as byte array</returns>
+        </member>
+        <member name="T:IronSoftware.IMatrixStruct">
+            <summary>
+            Simple 6 component matrix (3x2) for object transformation.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.ITransformable">
+            <summary>
+            Transformation parameters for an object.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.ITransformable.Scale">
+            <summary>
+            Target scale.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.ITransformable.Translate">
+            <summary>
+            Target translation.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.ITransformable.Matrix">
+            <summary>
+            Transformation matrix.
+            </summary>
+        </member>
+        <member name="P:IronSoftware.ITransformable.Rotation">
+            <summary>
+            Target rotation.
+            </summary>
+        </member>
+        <member name="T:IronSoftware.MatrixStruct">
+            <summary>
+            Simple 6 component matrix (3x2) for object transformation.
+            </summary>
+        </member>
+        <member name="F:IronSoftware.MatrixStruct.A">
+            <summary>
+            A component
+            </summary>
+        </member>
+        <member name="F:IronSoftware.MatrixStruct.B">
+            <summary>
+            B component
+            </summary>
+        </member>
+        <member name="F:IronSoftware.MatrixStruct.C">
+            <summary>
+            C component
+            </summary>
+        </member>
+        <member name="F:IronSoftware.MatrixStruct.D">
+            <summary>
+            D component
+            </summary>
+        </member>
+        <member name="F:IronSoftware.MatrixStruct.E">
+            <summary>
+            E component
+            </summary>
+        </member>
+        <member name="F:IronSoftware.MatrixStruct.F">
+            <summary>
+            F component
+            </summary>
+        </member>
+    </members>
+</doc>

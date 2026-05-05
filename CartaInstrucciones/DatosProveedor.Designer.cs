@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DatosProveedor));
             this.gboxOpciones = new System.Windows.Forms.GroupBox();
             this.llbDatosProveedor = new System.Windows.Forms.LinkLabel();
             this.llbCartaInstrucciones = new System.Windows.Forms.LinkLabel();
@@ -57,9 +58,11 @@
             this.gboxOpciones.Controls.Add(this.llbCartaInstrucciones);
             this.gboxOpciones.Controls.Add(this.llbDatosImportador);
             this.gboxOpciones.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.gboxOpciones.Location = new System.Drawing.Point(1, -5);
+            this.gboxOpciones.Location = new System.Drawing.Point(2, -8);
+            this.gboxOpciones.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gboxOpciones.Name = "gboxOpciones";
-            this.gboxOpciones.Size = new System.Drawing.Size(196, 350);
+            this.gboxOpciones.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gboxOpciones.Size = new System.Drawing.Size(294, 538);
             this.gboxOpciones.TabIndex = 1;
             this.gboxOpciones.TabStop = false;
             // 
@@ -75,9 +78,10 @@
             this.llbDatosProveedor.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.llbDatosProveedor.LinkColor = System.Drawing.Color.White;
             this.llbDatosProveedor.LinkVisited = true;
-            this.llbDatosProveedor.Location = new System.Drawing.Point(0, 71);
+            this.llbDatosProveedor.Location = new System.Drawing.Point(0, 109);
+            this.llbDatosProveedor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.llbDatosProveedor.Name = "llbDatosProveedor";
-            this.llbDatosProveedor.Size = new System.Drawing.Size(196, 26);
+            this.llbDatosProveedor.Size = new System.Drawing.Size(293, 39);
             this.llbDatosProveedor.TabIndex = 5;
             this.llbDatosProveedor.TabStop = true;
             this.llbDatosProveedor.Text = "Datos Proveedor";
@@ -97,9 +101,10 @@
             this.llbCartaInstrucciones.LinkArea = new System.Windows.Forms.LinkArea(0, 22);
             this.llbCartaInstrucciones.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.llbCartaInstrucciones.LinkColor = System.Drawing.Color.Black;
-            this.llbCartaInstrucciones.Location = new System.Drawing.Point(0, 16);
+            this.llbCartaInstrucciones.Location = new System.Drawing.Point(0, 25);
+            this.llbCartaInstrucciones.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.llbCartaInstrucciones.Name = "llbCartaInstrucciones";
-            this.llbCartaInstrucciones.Size = new System.Drawing.Size(196, 26);
+            this.llbCartaInstrucciones.Size = new System.Drawing.Size(294, 40);
             this.llbCartaInstrucciones.TabIndex = 4;
             this.llbCartaInstrucciones.TabStop = true;
             this.llbCartaInstrucciones.Text = "Carta de Instrucciones";
@@ -119,9 +124,10 @@
             this.llbDatosImportador.LinkArea = new System.Windows.Forms.LinkArea(0, 16);
             this.llbDatosImportador.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.llbDatosImportador.LinkColor = System.Drawing.Color.Black;
-            this.llbDatosImportador.Location = new System.Drawing.Point(0, 42);
+            this.llbDatosImportador.Location = new System.Drawing.Point(0, 65);
+            this.llbDatosImportador.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.llbDatosImportador.Name = "llbDatosImportador";
-            this.llbDatosImportador.Size = new System.Drawing.Size(196, 29);
+            this.llbDatosImportador.Size = new System.Drawing.Size(294, 45);
             this.llbDatosImportador.TabIndex = 3;
             this.llbDatosImportador.TabStop = true;
             this.llbDatosImportador.Text = "Datos Importador";
@@ -141,67 +147,76 @@
             this.gboxDatosProveedor.Controls.Add(this.label1);
             this.gboxDatosProveedor.Enabled = false;
             this.gboxDatosProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gboxDatosProveedor.Location = new System.Drawing.Point(203, 5);
+            this.gboxDatosProveedor.Location = new System.Drawing.Point(304, 8);
+            this.gboxDatosProveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gboxDatosProveedor.Name = "gboxDatosProveedor";
-            this.gboxDatosProveedor.Size = new System.Drawing.Size(524, 152);
+            this.gboxDatosProveedor.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gboxDatosProveedor.Size = new System.Drawing.Size(786, 234);
             this.gboxDatosProveedor.TabIndex = 2;
             this.gboxDatosProveedor.TabStop = false;
             this.gboxDatosProveedor.Text = "Datos Proveedor";
             // 
             // txtboxTAXID
             // 
-            this.txtboxTAXID.Location = new System.Drawing.Point(98, 105);
+            this.txtboxTAXID.Location = new System.Drawing.Point(147, 162);
+            this.txtboxTAXID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtboxTAXID.Name = "txtboxTAXID";
-            this.txtboxTAXID.Size = new System.Drawing.Size(353, 26);
+            this.txtboxTAXID.Size = new System.Drawing.Size(528, 35);
             this.txtboxTAXID.TabIndex = 5;
             // 
             // txtboxDireccion
             // 
-            this.txtboxDireccion.Location = new System.Drawing.Point(98, 73);
+            this.txtboxDireccion.Location = new System.Drawing.Point(147, 112);
+            this.txtboxDireccion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtboxDireccion.Name = "txtboxDireccion";
-            this.txtboxDireccion.Size = new System.Drawing.Size(353, 26);
+            this.txtboxDireccion.Size = new System.Drawing.Size(528, 35);
             this.txtboxDireccion.TabIndex = 4;
             // 
             // txtboxNombreProveedor
             // 
-            this.txtboxNombreProveedor.Location = new System.Drawing.Point(164, 38);
+            this.txtboxNombreProveedor.Location = new System.Drawing.Point(246, 58);
+            this.txtboxNombreProveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtboxNombreProveedor.Name = "txtboxNombreProveedor";
-            this.txtboxNombreProveedor.Size = new System.Drawing.Size(353, 26);
+            this.txtboxNombreProveedor.Size = new System.Drawing.Size(528, 35);
             this.txtboxNombreProveedor.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 108);
+            this.label3.Location = new System.Drawing.Point(26, 166);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 20);
+            this.label3.Size = new System.Drawing.Size(84, 29);
             this.label3.TabIndex = 2;
             this.label3.Text = "TAXID";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 76);
+            this.label2.Location = new System.Drawing.Point(26, 117);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 20);
+            this.label2.Size = new System.Drawing.Size(115, 29);
             this.label2.TabIndex = 1;
             this.label2.Text = "Direccion";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 41);
+            this.label1.Location = new System.Drawing.Point(26, 63);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 20);
+            this.label1.Size = new System.Drawing.Size(220, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre Proveedor";
             // 
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(750, 294);
+            this.btnCancelar.Location = new System.Drawing.Point(1125, 452);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(62, 51);
+            this.btnCancelar.Size = new System.Drawing.Size(93, 78);
             this.btnCancelar.TabIndex = 24;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -210,9 +225,10 @@
             // btnEliminar
             // 
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(750, 182);
+            this.btnEliminar.Location = new System.Drawing.Point(1125, 280);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(62, 51);
+            this.btnEliminar.Size = new System.Drawing.Size(93, 78);
             this.btnEliminar.TabIndex = 23;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -222,9 +238,10 @@
             // 
             this.btnGuardar.Enabled = false;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(750, 68);
+            this.btnGuardar.Location = new System.Drawing.Point(1125, 105);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(62, 51);
+            this.btnGuardar.Size = new System.Drawing.Size(93, 78);
             this.btnGuardar.TabIndex = 22;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -233,9 +250,10 @@
             // btnCambios
             // 
             this.btnCambios.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCambios.Location = new System.Drawing.Point(750, 125);
+            this.btnCambios.Location = new System.Drawing.Point(1125, 192);
+            this.btnCambios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCambios.Name = "btnCambios";
-            this.btnCambios.Size = new System.Drawing.Size(62, 51);
+            this.btnCambios.Size = new System.Drawing.Size(93, 78);
             this.btnCambios.TabIndex = 21;
             this.btnCambios.Text = "Cambios";
             this.btnCambios.UseVisualStyleBackColor = true;
@@ -244,9 +262,10 @@
             // btnAltas
             // 
             this.btnAltas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAltas.Location = new System.Drawing.Point(750, 11);
+            this.btnAltas.Location = new System.Drawing.Point(1125, 17);
+            this.btnAltas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAltas.Name = "btnAltas";
-            this.btnAltas.Size = new System.Drawing.Size(62, 51);
+            this.btnAltas.Size = new System.Drawing.Size(93, 78);
             this.btnAltas.TabIndex = 20;
             this.btnAltas.Text = "Alta";
             this.btnAltas.UseVisualStyleBackColor = true;
@@ -258,20 +277,22 @@
             this.dgvDatosProveedor.AllowUserToDeleteRows = false;
             this.dgvDatosProveedor.BackgroundColor = System.Drawing.Color.White;
             this.dgvDatosProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatosProveedor.Location = new System.Drawing.Point(224, 163);
+            this.dgvDatosProveedor.Location = new System.Drawing.Point(336, 251);
+            this.dgvDatosProveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvDatosProveedor.MultiSelect = false;
             this.dgvDatosProveedor.Name = "dgvDatosProveedor";
             this.dgvDatosProveedor.ReadOnly = true;
+            this.dgvDatosProveedor.RowHeadersWidth = 62;
             this.dgvDatosProveedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDatosProveedor.Size = new System.Drawing.Size(503, 188);
+            this.dgvDatosProveedor.Size = new System.Drawing.Size(754, 289);
             this.dgvDatosProveedor.TabIndex = 9;
             this.dgvDatosProveedor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosProveedor_CellClick);
             // 
             // DatosProveedor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 379);
+            this.ClientSize = new System.Drawing.Size(1251, 583);
             this.Controls.Add(this.dgvDatosProveedor);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.gboxDatosProveedor);
@@ -280,6 +301,8 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnCambios);
             this.Controls.Add(this.btnAltas);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "DatosProveedor";
             this.Text = "DatosProveedor";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DatosProveedor_FormClosed);

@@ -1,0 +1,187 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\gera_\\source\\repos\\Carta_Instrucciones\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3B596B54-A714-4D39-B060-881D61F13A88}|CartaInstrucciones\\CartaInstrucciones.csproj|C:\\Users\\gera_\\source\\repos\\Carta_Instrucciones\\cartainstrucciones\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B596B54-A714-4D39-B060-881D61F13A88}|CartaInstrucciones\\CartaInstrucciones.csproj|solutionrelative:cartainstrucciones\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B596B54-A714-4D39-B060-881D61F13A88}|CartaInstrucciones\\CartaInstrucciones.csproj|c:\\users\\gera_\\source\\repos\\carta_instrucciones\\cartainstrucciones\\datosproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3B596B54-A714-4D39-B060-881D61F13A88}|CartaInstrucciones\\CartaInstrucciones.csproj|solutionrelative:cartainstrucciones\\datosproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B596B54-A714-4D39-B060-881D61F13A88}|CartaInstrucciones\\CartaInstrucciones.csproj|c:\\users\\gera_\\source\\repos\\carta_instrucciones\\cartainstrucciones\\datosimportador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3B596B54-A714-4D39-B060-881D61F13A88}|CartaInstrucciones\\CartaInstrucciones.csproj|solutionrelative:cartainstrucciones\\datosimportador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B596B54-A714-4D39-B060-881D61F13A88}|CartaInstrucciones\\CartaInstrucciones.csproj|c:\\users\\gera_\\source\\repos\\carta_instrucciones\\cartainstrucciones\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3B596B54-A714-4D39-B060-881D61F13A88}|CartaInstrucciones\\CartaInstrucciones.csproj|solutionrelative:cartainstrucciones\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|CartaInstrucciones||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B596B54-A714-4D39-B060-881D61F13A88}|CartaInstrucciones\\CartaInstrucciones.csproj|C:\\Users\\gera_\\source\\repos\\Carta_Instrucciones\\cartainstrucciones\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B596B54-A714-4D39-B060-881D61F13A88}|CartaInstrucciones\\CartaInstrucciones.csproj|solutionrelative:cartainstrucciones\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B596B54-A714-4D39-B060-881D61F13A88}|CartaInstrucciones\\CartaInstrucciones.csproj|C:\\Users\\gera_\\source\\repos\\Carta_Instrucciones\\cartainstrucciones\\importador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B596B54-A714-4D39-B060-881D61F13A88}|CartaInstrucciones\\CartaInstrucciones.csproj|solutionrelative:cartainstrucciones\\importador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B596B54-A714-4D39-B060-881D61F13A88}|CartaInstrucciones\\CartaInstrucciones.csproj|C:\\Users\\gera_\\source\\repos\\Carta_Instrucciones\\cartainstrucciones\\proveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B596B54-A714-4D39-B060-881D61F13A88}|CartaInstrucciones\\CartaInstrucciones.csproj|solutionrelative:cartainstrucciones\\proveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B596B54-A714-4D39-B060-881D61F13A88}|CartaInstrucciones\\CartaInstrucciones.csproj|C:\\Users\\gera_\\source\\repos\\Carta_Instrucciones\\cartainstrucciones\\datosimportador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B596B54-A714-4D39-B060-881D61F13A88}|CartaInstrucciones\\CartaInstrucciones.csproj|solutionrelative:cartainstrucciones\\datosimportador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B596B54-A714-4D39-B060-881D61F13A88}|CartaInstrucciones\\CartaInstrucciones.csproj|c:\\users\\gera_\\source\\repos\\carta_instrucciones\\cartainstrucciones\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|984ae51a-4b21-44e7-822c-dd5e046893ef"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2088629290:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:311361673:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:944534458:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DatosProveedor.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\gera_\\source\\repos\\Carta_Instrucciones\\CartaInstrucciones\\DatosProveedor.cs",
+              "RelativeDocumentMoniker": "CartaInstrucciones\\DatosProveedor.cs",
+              "ToolTip": "C:\\Users\\gera_\\source\\repos\\Carta_Instrucciones\\CartaInstrucciones\\DatosProveedor.cs [Dise\u00F1o]",
+              "RelativeToolTip": "CartaInstrucciones\\DatosProveedor.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T23:32:45.901Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\gera_\\source\\repos\\Carta_Instrucciones\\CartaInstrucciones\\Form1.cs",
+              "RelativeDocumentMoniker": "CartaInstrucciones\\Form1.cs",
+              "ToolTip": "C:\\Users\\gera_\\source\\repos\\Carta_Instrucciones\\CartaInstrucciones\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "CartaInstrucciones\\Form1.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T23:20:07.095Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Importador.cs",
+              "DocumentMoniker": "C:\\Users\\gera_\\source\\repos\\Carta_Instrucciones\\CartaInstrucciones\\Importador.cs",
+              "RelativeDocumentMoniker": "CartaInstrucciones\\Importador.cs",
+              "ToolTip": "C:\\Users\\gera_\\source\\repos\\Carta_Instrucciones\\CartaInstrucciones\\Importador.cs",
+              "RelativeToolTip": "CartaInstrucciones\\Importador.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T23:20:07.055Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CartaInstrucciones",
+              "DocumentMoniker": "C:\\Users\\gera_\\source\\repos\\Carta_Instrucciones\\CartaInstrucciones\\CartaInstrucciones.csproj",
+              "RelativeDocumentMoniker": "CartaInstrucciones\\CartaInstrucciones.csproj",
+              "ToolTip": "C:\\Users\\gera_\\source\\repos\\Carta_Instrucciones\\CartaInstrucciones\\CartaInstrucciones.csproj",
+              "RelativeToolTip": "CartaInstrucciones\\CartaInstrucciones.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-04-30T23:57:53.08Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DatosImportador.cs",
+              "DocumentMoniker": "C:\\Users\\gera_\\source\\repos\\Carta_Instrucciones\\CartaInstrucciones\\DatosImportador.cs",
+              "RelativeDocumentMoniker": "CartaInstrucciones\\DatosImportador.cs",
+              "ToolTip": "C:\\Users\\gera_\\source\\repos\\Carta_Instrucciones\\CartaInstrucciones\\DatosImportador.cs",
+              "RelativeToolTip": "CartaInstrucciones\\DatosImportador.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAMwNQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T23:20:07.062Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Proveedor.cs",
+              "DocumentMoniker": "C:\\Users\\gera_\\source\\repos\\Carta_Instrucciones\\CartaInstrucciones\\Proveedor.cs",
+              "RelativeDocumentMoniker": "CartaInstrucciones\\Proveedor.cs",
+              "ToolTip": "C:\\Users\\gera_\\source\\repos\\Carta_Instrucciones\\CartaInstrucciones\\Proveedor.cs",
+              "RelativeToolTip": "CartaInstrucciones\\Proveedor.cs",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAnwA8AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T23:20:07.063Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\gera_\\source\\repos\\Carta_Instrucciones\\CartaInstrucciones\\Form1.cs",
+              "RelativeDocumentMoniker": "CartaInstrucciones\\Form1.cs",
+              "ToolTip": "C:\\Users\\gera_\\source\\repos\\Carta_Instrucciones\\CartaInstrucciones\\Form1.cs",
+              "RelativeToolTip": "CartaInstrucciones\\Form1.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAnwBEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T23:20:07.065Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\gera_\\source\\repos\\Carta_Instrucciones\\CartaInstrucciones\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "CartaInstrucciones\\Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\gera_\\source\\repos\\Carta_Instrucciones\\CartaInstrucciones\\Form1.Designer.cs",
+              "RelativeToolTip": "CartaInstrucciones\\Form1.Designer.cs",
+              "ViewState": "AgIAALoHAAAAAAAAAAAlwNMHAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T23:20:07.065Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DatosImportador.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\gera_\\source\\repos\\Carta_Instrucciones\\CartaInstrucciones\\DatosImportador.cs",
+              "RelativeDocumentMoniker": "CartaInstrucciones\\DatosImportador.cs",
+              "ToolTip": "C:\\Users\\gera_\\source\\repos\\Carta_Instrucciones\\CartaInstrucciones\\DatosImportador.cs [Dise\u00F1o]",
+              "RelativeToolTip": "CartaInstrucciones\\DatosImportador.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T23:32:33.479Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
