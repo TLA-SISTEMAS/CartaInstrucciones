@@ -251,3 +251,7 @@ C:\Users\gera_\source\repos\Carta_Instrucciones\CartaInstrucciones\obj\x64\Debug
 C:\Users\gera_\source\repos\Carta_Instrucciones\CartaInstrucciones\obj\x64\Debug\CartaIns.F04CA1BC.Up2Date
 C:\Users\gera_\source\repos\Carta_Instrucciones\CartaInstrucciones\obj\x64\Debug\CartaInstrucciones.exe
 C:\Users\gera_\source\repos\Carta_Instrucciones\CartaInstrucciones\obj\x64\Debug\CartaInstrucciones.pdb
+C:\Users\Camaras\source\repos\CartaInstrucciones\CartaInstrucciones\bin\x64\Debug\CartaInstrucciones.exe.manifest
+C:\Users\Camaras\source\repos\CartaInstrucciones\CartaInstrucciones\bin\x64\Debug\CartaInstrucciones.application
+C:\Users\Camaras\source\repos\CartaInstrucciones\CartaInstrucciones\obj\x64\Debug\CartaInstrucciones.exe.manifest
+C:\Users\Camaras\source\repos\CartaInstrucciones\CartaInstrucciones\obj\x64\Debug\CartaInstrucciones.application
