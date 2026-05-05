@@ -155,11 +155,24 @@ namespace CartaInstrucciones
                     lblFacturasCapturadasLotes.Visible = false;
                     cboxProveedor1.Items.AddRange(proveedorListar().ToArray());
                     lblFacturasaCapturar.Text = cantidadFacturasCapturarGlobal.ToString();
+                    gboxMaritimaTransportistaListaEmpaque.Enabled = false;
+                    gboxGeneralesDespachoAduanal.Enabled = false;
+                    gboxAgregados.Enabled = false;
+                    gboxDespachado.Enabled = false;
+                    if (int.Parse(lblFacturasaCapturar.Text) == int.Parse(lblFacturasCapturardasIndividual.Text))
+                    {
+                        gboxMaritimaTransportistaListaEmpaque.Enabled = true;
+                        gboxGeneralesDespachoAduanal.Enabled = true;
+                        gboxAgregados.Enabled = true;
+                        gboxDespachado.Enabled = true;
+                    }
                 } 
                 else
                 {
                     MessageBox.Show("El numero de facturas por capturar no puede ser menor al numero ya capturado");
                 }
+
+
             }
             else
             {
@@ -222,9 +235,17 @@ namespace CartaInstrucciones
                     }
                     else
                     {
+
                         MessageBox.Show("Se han capturado todas las Facturas");
                     }
-                    
+                    if (int.Parse(lblFacturasaCapturar.Text) == int.Parse(lblFacturasCapturardasIndividual.Text))
+                    {
+                        gboxMaritimaTransportistaListaEmpaque.Enabled = true;
+                        gboxGeneralesDespachoAduanal.Enabled = true;
+                        gboxAgregados.Enabled = true;
+                        gboxDespachado.Enabled = true;
+                    }
+
                 }
                 else
                 {
@@ -288,8 +309,13 @@ namespace CartaInstrucciones
         {
             if (dgvFacturasIndividual.CurrentRow != null && !dgvFacturasIndividual.CurrentRow.IsNewRow)
             {
+                gboxMaritimaTransportistaListaEmpaque.Enabled = false;
+                gboxGeneralesDespachoAduanal.Enabled = false;
+                gboxAgregados.Enabled = false;
+                gboxDespachado.Enabled = false;
                 dgvFacturasIndividual.Rows.Remove(dgvFacturasIndividual.CurrentRow);
                 lblFacturasCapturardasIndividual.Text = (int.Parse(lblFacturasCapturardasIndividual.Text) - 1).ToString();
+                
             }
         }
 

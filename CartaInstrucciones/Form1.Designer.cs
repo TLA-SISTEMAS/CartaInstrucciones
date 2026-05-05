@@ -639,6 +639,7 @@
             // 
             // cboxMetodoValoracion
             // 
+            this.cboxMetodoValoracion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxMetodoValoracion.FormattingEnabled = true;
             this.cboxMetodoValoracion.Items.AddRange(new object[] {
             "Valor Comercial",
