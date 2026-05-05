@@ -135,8 +135,10 @@ namespace CartaInstrucciones
 
         private void cboxImportador_MouseClick(object sender, MouseEventArgs e)
         {
-            cboxImportador.Items.Clear();
+            string importador = cboxImportador.Text;
+            cboxImportador.Items.Clear();            
             importadorListar();
+            cboxImportador.Text = importador;
         }
 
         private void btnCapturarFacturas_Click(object sender, EventArgs e)
@@ -330,8 +332,10 @@ namespace CartaInstrucciones
 
         private void cboxProveedor1_Click(object sender, EventArgs e)
         {
-            cboxProveedor1.Items.Clear();
+            string proveedor = cboxProveedor1.Text;
+            cboxProveedor1.Items.Clear();            
             cboxProveedor1.Items.AddRange(proveedorListar().ToArray());
+            cboxProveedor1.Text = proveedor;
         }
 
         private void btnGuardarLotes_Click(object sender, EventArgs e)
@@ -461,8 +465,10 @@ namespace CartaInstrucciones
 
         private void cboxProveedor2_Click(object sender, EventArgs e)
         {
+            string proveedor = cboxProveedor2.Text;
             cboxProveedor2.Items.Clear();
             cboxProveedor2.Items.AddRange(proveedorListar().ToArray());
+            cboxProveedor2.Text = proveedor;
         }
 
 
@@ -1517,6 +1523,11 @@ namespace CartaInstrucciones
         }
 
         private void panelCartanInstrucciones_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cboxProveedor1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

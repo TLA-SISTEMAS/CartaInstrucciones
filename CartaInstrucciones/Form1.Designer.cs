@@ -1211,6 +1211,11 @@
             0,
             0,
             0});
+            this.nudCantidadFacturasProveedor.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudCantidadFacturasProveedor.Name = "nudCantidadFacturasProveedor";
             this.nudCantidadFacturasProveedor.Size = new System.Drawing.Size(66, 20);
             this.nudCantidadFacturasProveedor.TabIndex = 2;
@@ -1522,6 +1527,7 @@
             this.cboxProveedor1.Name = "cboxProveedor1";
             this.cboxProveedor1.Size = new System.Drawing.Size(203, 21);
             this.cboxProveedor1.TabIndex = 5;
+            this.cboxProveedor1.SelectedIndexChanged += new System.EventHandler(this.cboxProveedor1_SelectedIndexChanged);
             this.cboxProveedor1.Click += new System.EventHandler(this.cboxProveedor1_Click);
             // 
             // lblValorFactura
