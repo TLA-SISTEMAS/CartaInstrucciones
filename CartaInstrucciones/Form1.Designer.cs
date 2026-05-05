@@ -1852,7 +1852,7 @@
             this.gbDatosAgencia.PerformLayout();
             this.gboxImportador.ResumeLayout(false);
             this.gboxImportador.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.performanceCounter1)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.performanceCounter1)).EndInit();
             this.panelCartanInstrucciones.ResumeLayout(false);
             this.ResumeLayout(false);
 

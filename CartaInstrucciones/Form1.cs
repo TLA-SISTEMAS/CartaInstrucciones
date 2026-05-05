@@ -171,8 +171,6 @@ namespace CartaInstrucciones
                 {
                     MessageBox.Show("El numero de facturas por capturar no puede ser menor al numero ya capturado");
                 }
-
-
             }
             else
             {
@@ -186,6 +184,17 @@ namespace CartaInstrucciones
                     lblFacturasCapturadasLotes.Visible = true;
                     cboxProveedor2.Items.AddRange(proveedorListar().ToArray());
                     lblFacturasaCapturar.Text = cantidadFacturasCapturarGlobal.ToString();
+                    gboxMaritimaTransportistaListaEmpaque.Enabled = false;
+                    gboxGeneralesDespachoAduanal.Enabled = false;
+                    gboxAgregados.Enabled = false;
+                    gboxDespachado.Enabled = false;
+                    if (int.Parse(lblFacturasaCapturar.Text) == int.Parse(lblFacturasCapturadasLotes.Text))
+                    {
+                        gboxMaritimaTransportistaListaEmpaque.Enabled = true;
+                        gboxGeneralesDespachoAduanal.Enabled = true;
+                        gboxAgregados.Enabled = true;
+                        gboxDespachado.Enabled = true;
+                    }
                 }
                 else
                 {
@@ -353,33 +362,61 @@ namespace CartaInstrucciones
                     {
                         MessageBox.Show("La cantidad de facturas no puede ser mayor a \"Facturas a Capturar\"");
                     }
+                    if (int.Parse(lblFacturasaCapturar.Text) == int.Parse(lblFacturasCapturadasLotes.Text))
+                    {
+                        gboxMaritimaTransportistaListaEmpaque.Enabled = true;
+                        gboxGeneralesDespachoAduanal.Enabled = true;
+                        gboxAgregados.Enabled = true;
+                        gboxDespachado.Enabled = true;
+                    }
                 }
                 else
                 {
                     int cantidadFacturasActual = int.Parse(dgvFacturasLotes.CurrentRow.Cells[1].Value.ToString());
-                    int cantidadFacturasNuevo = int.Parse(nudCantidadFacturasProveedor.Value.ToString());
-                    if(cantidadFacturasNuevo <= cantidadFacturasActual)
+                    int cantidadFacturasEntrante = int.Parse(nudCantidadFacturasProveedor.Value.ToString());
+                    int cantidadFacturasNuevo;
+
+                    if(cantidadFacturasEntrante <= cantidadFacturasActual)
                     {
-                        int cantidadFacturasRestadas = cantidadFacturasActual - cantidadFacturasNuevo;
-                        lblFacturasCapturadasLotes.Text = (int.Parse(lblFacturasCapturadasLotes.Text) - cantidadFacturasRestadas).ToString();
+                        int cantidadFacturasRestadas = cantidadFacturasActual - cantidadFacturasEntrante;
+                        cantidadFacturasNuevo = (int.Parse(lblFacturasCapturadasLotes.Text) - cantidadFacturasRestadas);
                     }
                     else
                     {
-                        int cantidadFacturasSumadas = cantidadFacturasNuevo - cantidadFacturasActual;
-                        lblFacturasCapturadasLotes.Text = (int.Parse(lblFacturasCapturadasLotes.Text) + cantidadFacturasSumadas).ToString();
+                        int cantidadFacturasSumadas = cantidadFacturasEntrante - cantidadFacturasActual;
+                        cantidadFacturasNuevo = (int.Parse(lblFacturasCapturadasLotes.Text) + cantidadFacturasSumadas);                        
+                    }
+                    if (cantidadFacturasNuevo <= int.Parse(lblFacturasaCapturar.Text))
+                    {
+                        lblFacturasCapturadasLotes.Text = cantidadFacturasNuevo.ToString();
+                        dgvFacturasLotes.CurrentRow.Cells[0].Value = nombreProveedor;
+                        dgvFacturasLotes.CurrentRow.Cells[1].Value = nudCantidadFacturasProveedor.Value.ToString();
+                        dgvFacturasLotes.CurrentRow.Cells[2].Value = txtboxValorFactura2.Text;
+                        dgvFacturasLotes.CurrentRow.Cells[3].Value = txtboxDescripcionGenericaILotes.Text;
+                        dgvFacturasLotes.CurrentRow.Cells[4].Value = idProveedor.ToString();
+                        cboxProveedor2.Text = null;
+                        nudCantidadFacturasProveedor.Value = 1;
+                        txtboxValorFactura2.Text = null;
+                        txtboxDescripcionGenericaILotes.Text = null;
+                        dgvFacturasLotes.Enabled = true;
+                        btnEliminarLotes.Enabled = true;
+                        gboxMaritimaTransportistaListaEmpaque.Enabled = false;
+                        gboxGeneralesDespachoAduanal.Enabled = false;
+                        gboxAgregados.Enabled = false;
+                        gboxDespachado.Enabled = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("La cantidad de facturas no puede ser mayor a \"Facturas a Capturar\"");
+                    }
+                    if (int.Parse(lblFacturasaCapturar.Text) == int.Parse(lblFacturasCapturadasLotes.Text))
+                    {
+                        gboxMaritimaTransportistaListaEmpaque.Enabled = true;
+                        gboxGeneralesDespachoAduanal.Enabled = true;
+                        gboxAgregados.Enabled = true;
+                        gboxDespachado.Enabled = true;
                     }
 
-                    dgvFacturasLotes.CurrentRow.Cells[0].Value = nombreProveedor;
-                    dgvFacturasLotes.CurrentRow.Cells[1].Value = nudCantidadFacturasProveedor.Value.ToString();
-                    dgvFacturasLotes.CurrentRow.Cells[2].Value = txtboxValorFactura2.Text;
-                    dgvFacturasLotes.CurrentRow.Cells[3].Value = txtboxDescripcionGenericaILotes.Text;
-                    dgvFacturasLotes.CurrentRow.Cells[4].Value = idProveedor.ToString();
-                    cboxProveedor2.Text = null;
-                    nudCantidadFacturasProveedor.Value = 1;
-                    txtboxValorFactura2.Text = null;
-                    txtboxDescripcionGenericaILotes.Text = null;
-                    dgvFacturasLotes.Enabled = true;
-                    btnEliminarLotes.Enabled = true;
                 }
 
             }
@@ -412,6 +449,10 @@ namespace CartaInstrucciones
         {
             if (dgvFacturasLotes.CurrentRow != null && !dgvFacturasLotes.CurrentRow.IsNewRow)
             {
+                gboxMaritimaTransportistaListaEmpaque.Enabled = false;
+                gboxGeneralesDespachoAduanal.Enabled = false;
+                gboxAgregados.Enabled = false;
+                gboxDespachado.Enabled = false;
                 int cantidadFacturasEliminadas = int.Parse(dgvFacturasLotes.CurrentRow.Cells[1].Value.ToString());
                 lblFacturasCapturadasLotes.Text = (int.Parse(lblFacturasCapturadasLotes.Text) - cantidadFacturasEliminadas).ToString();
                 dgvFacturasLotes.Rows.Remove(dgvFacturasLotes.CurrentRow);
