@@ -16,7 +16,7 @@ namespace CartaInstrucciones.Modelo
 
         private static Aduana _intancia = null;
         public int IDAduana { get; set; }
-        public int Nombre { get; set; }
+        public string Nombre { get; set; }
 
         public Aduana() { }
 
@@ -59,6 +59,34 @@ namespace CartaInstrucciones.Modelo
             }
 
             return listaduanas;
+        }
+
+        public Aduana ListarunaAduana(string idAduana)
+        {
+
+            Aduana proveedor = new Aduana();
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                conexion.Open();
+
+                string query = "SELECT * FROM aduana where IDAduana = @idAduana;";
+                SQLiteCommand cmd = new SQLiteCommand(query, conexion);
+                cmd.Parameters.Add(new SQLiteParameter("@idAduana", idAduana));
+                cmd.CommandType = System.Data.CommandType.Text;
+                using (SQLiteDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        proveedor = new Aduana()
+                        {
+                            IDAduana = int.Parse(dr["IDAduana"].ToString()),
+                            Nombre = dr["Nombre"].ToString(),
+
+                        };
+                    }
+                }
+            }
+            return proveedor;
         }
     }
 }

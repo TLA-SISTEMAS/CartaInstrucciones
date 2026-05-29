@@ -57,5 +57,33 @@ namespace CartaInstrucciones.Modelo
             }
             return oLista;
         }
+
+        public Patente ListarunaPatente(string idPatente)
+        {
+
+            Patente proveedor = new Patente();
+            using (SQLiteConnection conexion = new SQLiteConnection(cadena))
+            {
+                conexion.Open();
+
+                string query = "SELECT * FROM patente where IDPatente = @idPatente;";
+                SQLiteCommand cmd = new SQLiteCommand(query, conexion);
+                cmd.Parameters.Add(new SQLiteParameter("@idPatente", idPatente));
+                cmd.CommandType = System.Data.CommandType.Text;
+                using (SQLiteDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        proveedor = new Patente()
+                        {
+                            idPatente = int.Parse(dr["IDPatente"].ToString()),
+                            nombreAgente = dr["NombreAgente"].ToString(),
+
+                        };
+                    }
+                }
+            }
+            return proveedor;
+        }
     }
 }

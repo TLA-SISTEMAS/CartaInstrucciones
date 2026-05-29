@@ -14,8 +14,7 @@ using System.Windows.Forms;
 using IronWord;
 using objWord = Microsoft.Office.Interop.Word;
 using System.IO;
-
-
+using System.Web;
 
 namespace CartaInstrucciones
 {
@@ -101,6 +100,9 @@ namespace CartaInstrucciones
             {
                 cboxAduana.Items.Add(item.IDAduana);
             }
+            Patente miPatente = Patente.Instancia.ListarunaPatente(patenteSelecionada);
+            txtboxNombreAgente.Text = miPatente.nombreAgente.ToString();
+            txtboxNombreAduana.Text = null;
         }
 
         public void importadorListar()
@@ -150,7 +152,9 @@ namespace CartaInstrucciones
                 if (dgvFacturasIndividual.Rows.Count <= cantidadFacturasCapturarGlobal) 
                 {
                     gboxFacturaIndividual.Enabled = true;
+                    gboxFacturaIndividual.Visible = true;
                     dgvFacturasIndividual.Visible = true;
+                    gboxFacturaLote.Visible = false;
                     dgvFacturasLotes.Visible = false;
                     gboxFacturaLote.Enabled = false;
                     lblFacturasCapturardasIndividual.Visible = true;
@@ -179,6 +183,8 @@ namespace CartaInstrucciones
                 if (int.Parse(lblFacturasCapturadasLotes.Text) <= cantidadFacturasCapturarGlobal)
                 {
                     gboxFacturaLote.Enabled = true;
+                    gboxFacturaIndividual.Visible = false;
+                    gboxFacturaLote.Visible = true;
                     gboxFacturaIndividual.Enabled = false;
                     dgvFacturasIndividual.Visible = false;
                     dgvFacturasLotes.Visible = true;
@@ -594,49 +600,9 @@ namespace CartaInstrucciones
             txtboxValorFactura2 = formatoMoneda(txtboxValorFactura2);
         }
 
-        private void txtboxIncreFlete_Leave(object sender, EventArgs e)
-        {
-            txtboxIncreFlete = formatoMoneda(txtboxIncreFlete);
-        }
-
-        private void txtboxIncreSeguro_Leave(object sender, EventArgs e)
-        {
-            txtboxIncreSeguro = formatoMoneda(txtboxIncreSeguro);
-        }
-
-        private void txtboxIncreEmbalaje_Leave(object sender, EventArgs e)
-        {
-            txtboxIncreEmbalaje = formatoMoneda(txtboxIncreEmbalaje);
-        }
-
         private void txtboxIncreOtrosgastos_Leave(object sender, EventArgs e)
         {
-            txtboxIncreOtrosgastos = formatoMoneda(txtboxIncreOtrosgastos);
-        }
-
-        private void txtboxDreceTransporte_Leave(object sender, EventArgs e)
-        {
-            txtboxDreceTransporte = formatoMoneda(txtboxDreceTransporte);
-        }
-
-        private void txtboxDreceSeguro_Leave(object sender, EventArgs e)
-        {
-            txtboxDreceSeguro = formatoMoneda(txtboxDreceSeguro);
-        }
-
-        private void txtboxDreceCarga_Leave(object sender, EventArgs e)
-        {
-            txtboxDreceCarga = formatoMoneda(txtboxDreceCarga);
-        }
-
-        private void txtboxDreceEmbalaje_Leave(object sender, EventArgs e)
-        {
-            txtboxDreceEmbalaje = formatoMoneda(txtboxDreceEmbalaje);
-        }
-
-        private void txtboxDreceOtrosGastos_Leave(object sender, EventArgs e)
-        {
-            txtboxDreceOtrosGastos = formatoMoneda(txtboxDreceOtrosGastos);
+            txtboxIncrePoveedor = formatoMoneda(txtboxIncrePoveedor);
         }
 
         private void btnGenerarCarta_Click(object sender, EventArgs e)
@@ -664,57 +630,89 @@ namespace CartaInstrucciones
                 pageSetup.RightMargin = 1f * cmToPoints;
 
 
-                objWord.Paragraph objParrafo1 = objDocument.Content.Paragraphs.Add(Type.Missing);
+                objWord.Paragraph textoCartaInstrucciones = objDocument.Content.Paragraphs.Add();
 
                 //TAMAÑO DE LETRA
-                objParrafo1.Range.Font.Size = 8;
+                textoCartaInstrucciones.Range.Font.Size = 8;
                 //AGREGAR TEXTO A UN PARRAFO
-                objParrafo1.Range.Text = "CARTA DE INSTRUCCIONES";
+                textoCartaInstrucciones.Range.Text = "CARTA DE INSTRUCCIONES";
                 //TIPO DE LETRA
-                objParrafo1.Range.Font.Name = "Times New Roman";
+                textoCartaInstrucciones.Range.Font.Name = "Times New Roman";
                 //CENTRAR UN PARRAFO
-                objParrafo1.Alignment = objWord.WdParagraphAlignment.wdAlignParagraphCenter;
+                textoCartaInstrucciones.Alignment = objWord.WdParagraphAlignment.wdAlignParagraphCenter;
 
-                objParrafo1.Range.InsertParagraphAfter();
+                textoCartaInstrucciones.Range.InsertParagraphAfter();
 
-                //AA
-
-                objParrafo1.Range.Text = "A.A " + txtboxAA.Text;
-                objParrafo1.Range.Font.Name = "Arial";
-                objParrafo1.Range.Font.Size = 8;
-                objParrafo1.Alignment = objWord.WdParagraphAlignment.wdAlignParagraphLeft;
-                objParrafo1.Range.InsertParagraphAfter();
-
-                //PATENTE ADUANAL
-
-                objParrafo1.Range.Text = "PATENTE ADUANAL " + cboxPatente.Text;
-                objParrafo1.Range.Font.Name = "Arial";
-                objParrafo1.Range.Font.Size = 8;
-                objParrafo1.Range.InsertParagraphAfter();
-
-                //ADUANA DE
-
-                objParrafo1.Range.Text = "ADUANA DE " + cboxAduana.Text;
-                objParrafo1.Range.Font.Name = "Arial";
-                objParrafo1.Range.Font.Size = 8;
-                objParrafo1.Range.InsertParagraphAfter();
 
                 //Fecha
+                objWord.Paragraph textoFecha = objDocument.Content.Paragraphs.Add();
+                textoFecha.Range.Text = "hola";
+                textoFecha.Format.SpaceBefore = 0;
+                textoFecha.Alignment = objWord.WdParagraphAlignment.wdAlignParagraphLeft;
+                objWord.Range rangeTextoFech = textoFecha.Range;
+                rangeTextoFech.Font.Size = 8;
+                rangeTextoFech.Font.Name = "Arial";
+                rangeTextoFech.Text = "Fecha: ";
+
+                rangeTextoFech.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
+
+                rangeTextoFech.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                rangeTextoFech.Bold = 1;
+                rangeTextoFech.InsertParagraphAfter();
+
+                //AA
+                objWord.Paragraph textoAA = objDocument.Content.Paragraphs.Add();
+                textoAA.Range.Text = "";
+                textoAA.Format.SpaceBefore = 0;
+                objWord.Range rangetextoAA = textoAA.Range;
+                rangetextoAA.Text = "Agencia: ";
+                rangetextoAA.Font.Name = "Arial";
+                rangetextoAA.Font.Size = 8;
+                rangetextoAA.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
+
+                rangetextoAA.Text = txtboxAA.Text;
+                rangetextoAA.Font.Name = "Arial";
+                rangetextoAA.Font.Size = 8;
+                rangetextoAA.Font.Bold = 1;
+                rangetextoAA.InsertParagraphAfter();
+
+                //PATENTE ADUANAL
+                objWord.Paragraph textoPatente = objDocument.Content.Paragraphs.Add();
+                textoPatente.Range.Text = "";
+                textoPatente.Format.SpaceBefore = 0;
+                objWord.Range rangeTextoPatente = textoPatente.Range;
+                rangeTextoPatente.Text = "AGENTE ADUANAL Y PATENTE: ";
+                rangeTextoPatente.Font.Name = "Arial";
+                rangeTextoPatente.Font.Size = 8;
+                rangeTextoPatente.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
+                rangeTextoPatente.Text = txtboxNombreAgente.Text;
+                rangeTextoPatente.Bold = 1;
+                rangeTextoPatente.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
+                rangeTextoPatente.Text = " ("+cboxPatente.Text+")";
+                rangeTextoPatente.InsertParagraphAfter();
 
 
-                objParrafo1.Range.Text = DateTime.Now.ToString("dd/MM/yyyy");
-                objParrafo1.Range.Font.Name = "Arial";
-                objParrafo1.Range.Font.Size = 8;
-                objParrafo1.Alignment = objWord.WdParagraphAlignment.wdAlignParagraphRight;
-                objParrafo1.Range.InsertParagraphAfter();
+                //ADUANA DE
+                objWord.Paragraph textoAduana = objDocument.Content.Paragraphs.Add();
+                textoAduana.Range.Text = "";
+                textoAduana.Format.SpaceBefore = 8;
+                objWord.Range rangeTextoAduana = textoPatente.Range;
+                rangeTextoAduana.Text = "ADUANA DE: ";
+                rangeTextoAduana.Font.Name = "Arial";
+                rangeTextoAduana.Font.Size = 8;
+                rangeTextoAduana.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
+                rangeTextoAduana.Text = cboxAduana.Text;
+                rangeTextoAduana.Bold = 1;
+                rangeTextoAduana.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
+                rangeTextoAduana.Text = " "+txtboxNombreAduana.Text;
+                rangeTextoAduana.InsertParagraphAfter();
 
                 //PRESENTE
-
-                objParrafo1.Range.Text = "P R E S E N T E";
-                objParrafo1.Range.Font.Name = "Arial";
-                objParrafo1.Range.Font.Size = 8;
-                objParrafo1.Alignment = objWord.WdParagraphAlignment.wdAlignParagraphLeft;
-                objParrafo1.Range.InsertParagraphAfter();
+                objWord.Paragraph textoPresente = objDocument.Content.Paragraphs.Add();
+                textoPresente.Range.Text = "P R E S E N T E";
+                textoPresente.Range.Font.Name = "Arial";
+                textoPresente.Range.Font.Size = 8;
+                textoPresente.Range.InsertParagraphAfter();
 
                 //Texto Largo
 
@@ -731,7 +729,7 @@ namespace CartaInstrucciones
                 rangeTextoLargo.Font.Bold = 1;
                 rangeTextoLargo.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
 
-                rangeTextoLargo.Text = " , Representante legal de la Empresa ";
+                rangeTextoLargo.Text = ", en mi carácter de Representante Legal de la empresa ";
                 rangeTextoLargo.Font.Bold = 0;
                 rangeTextoLargo.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
 
@@ -739,15 +737,7 @@ namespace CartaInstrucciones
                 rangeTextoLargo.Font.Bold = 1;
                 rangeTextoLargo.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
 
-                rangeTextoLargo.Text = " , con domicilio Fiscal ubicado en domicilio ";
-                rangeTextoLargo.Font.Bold = 0;
-                rangeTextoLargo.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
-
-                rangeTextoLargo.Text = txtboxDomicilioFiscaCartaInstrucciones.Text.ToUpper();
-                rangeTextoLargo.Font.Bold = 1;
-                rangeTextoLargo.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
-
-                rangeTextoLargo.Text = " y  R.F.C. ";
+                rangeTextoLargo.Text = " , con Registro Federal de Contribuyentes ";
                 rangeTextoLargo.Font.Bold = 0;
                 rangeTextoLargo.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
 
@@ -755,9 +745,68 @@ namespace CartaInstrucciones
                 rangeTextoLargo.Font.Bold = 1;
                 rangeTextoLargo.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
 
-                rangeTextoLargo.Text = " con base en lo prescrito en los Arts. 40,  41  y demás correlativos de la ley Aduanera, El Suscrito por medio de la presente Carta de  Encomienda, le confiero Poder amplio, cumplido y bastante, para que en mi Nombre y con la calidad de Representante, realice  todos los trámites relativos al despacho de mercancía ante La Aduana correspondiente a la siguiente Información:";
+                rangeTextoLargo.Text = " y domicilio fiscal en ";
                 rangeTextoLargo.Font.Bold = 0;
+                rangeTextoLargo.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
+
+                rangeTextoLargo.Text = txtboxDomicilioFiscaCartaInstrucciones.Text.ToUpper();
+                rangeTextoLargo.Font.Bold = 1;
+                rangeTextoLargo.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
+
+                rangeTextoLargo.Text = " personalidad que acredito debidamente en términos de los testimonios notariales que se entregaron con anticipación; con fundamento en lo dispuesto por los artículos";
+                rangeTextoLargo.Font.Bold = 0;
+                rangeTextoLargo.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
+
+                rangeTextoLargo.Text = " 40, 59 fracción III, y 162 fracción VII de la Ley Aduanera vigente";
+                rangeTextoLargo.Font.Bold = 1;
+                rangeTextoLargo.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
+
+                rangeTextoLargo.Text = ", en relación con los artículos";
+                rangeTextoLargo.Font.Bold = 0;
+                rangeTextoLargo.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
+
+                rangeTextoLargo.Text = " 68 y 216 de su Reglamento";
+                rangeTextoLargo.Font.Bold = 1;
+                rangeTextoLargo.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
+
+                rangeTextoLargo.Text = " por medio del presente instrumento de manera formal:";
+                rangeTextoLargo.Font.Bold = 0;
+                //rangeTextoLargo.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
+
                 rangeTextoLargo.InsertParagraphAfter();
+
+                objWord.Paragraph textoLargo2 = objDocument.Paragraphs.Add();
+                objWord.Range rangeTextoLargo2 = textoLargo.Range;
+
+                rangeTextoLargo2.Font.Size = 8;
+                rangeTextoLargo2.Font.Name = "Arial";
+
+
+                rangeTextoLargo2.Text = "CONFIERO ENCOMIENDA Y PODER AMPLIO";
+                rangeTextoLargo2.Font.Bold = 1;
+                rangeTextoLargo2.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
+
+                rangeTextoLargo2.Text = ", cumplido y bastante al Agente Aduanal ";
+                rangeTextoLargo2.Font.Bold = 0;
+                rangeTextoLargo2.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
+
+                rangeTextoLargo2.Text = txtboxNombreAgente.Text;
+                rangeTextoLargo2.Font.Bold = 1;
+                rangeTextoLargo2.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
+
+                rangeTextoLargo2.Text = " (Titular de la Patente Aduanal ";
+                rangeTextoLargo2.Font.Bold = 0;
+                rangeTextoLargo2.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
+
+                rangeTextoLargo2.Text = cboxAduana.Text;
+                rangeTextoLargo2.Font.Bold = 1;
+                rangeTextoLargo2.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
+
+                rangeTextoLargo2.Text = ") para que a nombre y representación de mi representada, realice todos los actos, trámites y formalidades inherentes al despacho aduanero de las mercancías que se consignen a su cuidado, ante la Aduana de "+ txtboxNombreAduana.Text;
+                rangeTextoLargo2.Font.Bold = 0;
+                //rangeTextoLargo2.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
+
+                rangeTextoLargo2.InsertParagraphAfter();
 
                 objWord.Paragraph objParrafoTitulos = objDocument.Content.Paragraphs.Add(Type.Missing);
 
@@ -765,7 +814,7 @@ namespace CartaInstrucciones
                 objParrafoTitulos.Range.Text = "GENERALES DE EMBARQUE";
                 objParrafoTitulos.Range.Bold = 1;
                 //Modificar espaciado entre parrafos
-                objParrafoTitulos.Format.SpaceAfter = 8f;
+                objParrafoTitulos.Format.SpaceAfter = 0f;
                 objParrafoTitulos.Range.InsertParagraphAfter();
 
                 object missing = System.Reflection.Missing.Value;
@@ -779,7 +828,7 @@ namespace CartaInstrucciones
                 //TALBA FACTURAS
                 objWord.Paragraph parrafoEnter = objDocument.Paragraphs.Add(ref missing);
                 
-                if (dgvFacturasIndividual.Enabled)
+                if (dgvFacturasIndividual.Visible)
                 {                
                     int filas = dgvFacturasIndividual.Rows.Count + 1;
                     //int filas = 5;
@@ -855,7 +904,7 @@ namespace CartaInstrucciones
                     tablaProveedores.Cell(1, 1).Range.ParagraphFormat.SpaceAfter = 0;
 
                     celda = tablaProveedores.Cell(1, 2);
-                    celda = formatoCelda(celda, "Direccion", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                    celda = formatoCelda(celda, "Dirección", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
                     tablaProveedores.Cell(1, 1).BottomPadding = 0;
                     tablaProveedores.Cell(1, 1).Range.ParagraphFormat.SpaceAfter = 0;
 
@@ -882,7 +931,7 @@ namespace CartaInstrucciones
                     }
 
                 }
-                if (dgvFacturasLotes.Enabled)
+                if (dgvFacturasLotes.Visible)
                 {
                     int filas = dgvFacturasLotes.Rows.Count + 1;
                     int columnas = 4;
@@ -1040,13 +1089,13 @@ namespace CartaInstrucciones
                 //TABLA TIPO OPERACION REGIMEN E INCOTERM (TORAI)
 
                 objWord.Range rangetablaGeneralDespachoTORA = objDocument.Paragraphs.Add(ref missing).Range;
-                objWord.Table tablaGeneralDespachoTORAI = objDocument.Tables.Add(rangetablaGeneralDespachoTORA, 1, 6);
+                objWord.Table tablaGeneralDespachoTORAI = objDocument.Tables.Add(rangetablaGeneralDespachoTORA, 1, 8);
 
                 tablaGeneralDespachoTORAI.Borders.Enable = 1;
 
                 tamanios.Clear();
-                tamanios.AddRange(new float[] { 1.78f, 2.46f, 1.57f, 11.07f, 1.57f, 1.04f });
-                tablaGeneralDespachoTORAI = asignarTamanioColumna(tablaGeneralDespachoTORAI, 6, tamanios);
+                tamanios.AddRange(new float[] { 1.74f, 1.75f, 1.5f, 4.18f,1.58f, 1f, 2f, 5.71f});
+                tablaGeneralDespachoTORAI = asignarTamanioColumna(tablaGeneralDespachoTORAI, 8, tamanios);
 
                 celda = tablaGeneralDespachoTORAI.Cell(1, 1);
                 celda = formatoCelda(celda, "Tipo de Operación", 8 ,1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
@@ -1066,13 +1115,20 @@ namespace CartaInstrucciones
                 celda = formatoCelda(celda, "Régimen Aduanal", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
 
                 celda = tablaGeneralDespachoTORAI.Cell(1, 4);
-                celda = formatoCelda(celda, txtboxRegimenAduanal.Text, 8, 0, objWord.WdColor.wdColorAutomatic, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphLeft);
+                celda = formatoCelda(celda, cboxRegimenAduanal.Text, 8, 0, objWord.WdColor.wdColorAutomatic, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphLeft);
 
                 celda = tablaGeneralDespachoTORAI.Cell(1, 5);
                 celda = formatoCelda(celda, "Incoterm", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
 
                 celda = tablaGeneralDespachoTORAI.Cell(1, 6);
                 celda = formatoCelda(celda, cboxIncoterm.Text, 8, 0, objWord.WdColor.wdColorAutomatic, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+
+                celda = tablaGeneralDespachoTORAI.Cell(1, 7);
+                celda = formatoCelda(celda, "Descripción", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+
+                celda = tablaGeneralDespachoTORAI.Cell(1, 8);
+                celda = formatoCelda(celda, txtIncotermDescripcion.Text, 8, 0, objWord.WdColor.wdColorAutomatic, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+
 
                 parrafoEnter.Range.Text = "";
                 parrafoEnter.Format.SpaceAfter = 0f;
@@ -1089,51 +1145,51 @@ namespace CartaInstrucciones
 
                 //TABLA INCREMENTABLES
                 objWord.Range rangetablaIncrementables = objDocument.Paragraphs.Add(ref missing).Range;
-                objWord.Table tablaIncrementables = objDocument.Tables.Add(rangetablaIncrementables, 1, 8);
+                int filasIncre = dgvIncrementables.RowCount + 1;
+                int columnasIncre = 5;
+                objWord.Table tablaIncrementables = objDocument.Tables.Add(rangetablaIncrementables, filasIncre, columnasIncre);
 
                 tablaIncrementables.Borders.Enable = 1;
 
                 tamanios.Clear();
-                tamanios.AddRange(new float[] { 1.64f, 3f, 1.64f, 3f, 1.64f, 3f, 1.64f, 3f});
-                tablaIncrementables = asignarTamanioColumna(tablaIncrementables, 6, tamanios);
+                tamanios.AddRange(new float[] { 2.99f, 5f, 3.25f , 3.75f, 3.83f});
+                tablaIncrementables = asignarTamanioColumna(tablaIncrementables, 5, tamanios);
 
                 celda = tablaIncrementables.Cell(1, 1);
-                celda = formatoCelda(celda, "Flete", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                celda = formatoCelda(celda, "Incrementables", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                tablaIncrementables.Cell(1, 1).BottomPadding = 0;
+                tablaIncrementables.Cell(1, 1).Range.ParagraphFormat.SpaceAfter = 0;
 
                 celda = tablaIncrementables.Cell(1, 2);
-                celda = formatoCelda(celda, txtboxIncreFlete.Text, 8, 0, objWord.WdColor.wdColorAutomatic, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                celda = formatoCelda(celda, "Proveedor", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                tablaIncrementables.Cell(1, 2).BottomPadding = 0;
+                tablaIncrementables.Cell(1, 2).Range.ParagraphFormat.SpaceAfter = 0;
 
                 celda = tablaIncrementables.Cell(1, 3);
-                celda = formatoCelda(celda, "Seguro", 8,1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
-
+                celda = formatoCelda(celda, "Cantidad", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                tablaIncrementables.Cell(1, 2).BottomPadding = 0;
+                tablaIncrementables.Cell(1, 2).Range.ParagraphFormat.SpaceAfter = 0;
                 celda = tablaIncrementables.Cell(1, 4);
-                celda = formatoCelda(celda, txtboxIncreSeguro.Text, 8, 0, objWord.WdColor.wdColorAutomatic, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
 
+                celda = formatoCelda(celda, "Fecha de Factura", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                tablaIncrementables.Cell(1, 2).BottomPadding = 0;
+                tablaIncrementables.Cell(1, 2).Range.ParagraphFormat.SpaceAfter = 0;
                 celda = tablaIncrementables.Cell(1, 5);
-                celda = formatoCelda(celda, "Embalaje", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
 
-                celda = tablaIncrementables.Cell(1, 6);
-                celda = formatoCelda(celda, txtboxIncreEmbalaje.Text, 8, 0, objWord.WdColor.wdColorAutomatic, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                celda = formatoCelda(celda, "Fecha de Pago", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                tablaIncrementables.Cell(1, 2).BottomPadding = 0;
+                tablaIncrementables.Cell(1, 2).Range.ParagraphFormat.SpaceAfter = 0;
 
-                celda = tablaIncrementables.Cell(1, 7);
-                celda = formatoCelda(celda, "Otros", 8, 0, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                for (int r = 2; r <= filasIncre; r++)
+                {
+                    for (int c = 1; c <= columnasIncre; c++)
+                    {
+                        tablaIncrementables.Cell(r, c).Range.Text = dgvIncrementables.Rows[r - 2].Cells[c - 1].Value.ToString();
+                        tablaIncrementables.Cell(r, c).Range.Bold = 0;
+                        //tablaGeneralEmbarque.Cell(r, c).Range.Text = $"F{r-2}C{c-1}";
+                    }
 
-                celda = tablaIncrementables.Cell(1, 8);
-                celda = formatoCelda(celda, txtboxIncreOtrosgastos.Text, 8, 0, objWord.WdColor.wdColorAutomatic, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
-
-                objWord.Paragraph fechaIncrementables = objDocument.Paragraphs.Add();
-                objWord.Range rangeFechaIncrementables = fechaIncrementables.Range;
-
-                rangeFechaIncrementables.Font.Size = 8;
-                rangeFechaIncrementables.Text = "Fecha de Pago Incrementables: ";
-                rangeFechaIncrementables.Bold = 1;
-
-                rangeFechaIncrementables.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
-
-                rangeFechaIncrementables.Text = maskedFechaPagoIncrementables.Text;
-                rangeFechaIncrementables.Bold = 0;
-
-                rangeFechaIncrementables.InsertParagraphAfter();
+                }
 
                 parrafoEnter.Range.Text = "";
                 parrafoEnter.Format.SpaceAfter = 0f;
@@ -1148,58 +1204,53 @@ namespace CartaInstrucciones
                 objParrafoTitulos.Range.InsertParagraphAfter();
 
                 //TABLA DECREMENTABLES
+
                 objWord.Range rangetablaDecrementables = objDocument.Paragraphs.Add(ref missing).Range;
-                objWord.Table tablaDecrementables = objDocument.Tables.Add(rangetablaDecrementables, 1, 10);
+                int filasDecre = dgvDrecrementables.RowCount + 1;
+                int columnasDecre = 5;
+                objWord.Table tablaDecrementables = objDocument.Tables.Add(rangetablaDecrementables, filasDecre, columnasDecre);
 
                 tablaDecrementables.Borders.Enable = 1;
 
                 tamanios.Clear();
-                tamanios.AddRange(new float[] { 1.86f, 2.44f, 1.36f, 2.44f, 1.18f, 2.44f, 1.62f, 2.44f, 1.13f, 2.59f });
-                tablaDecrementables = asignarTamanioColumna(tablaDecrementables, 10, tamanios);
+                tamanios.AddRange(new float[] { 2.99f, 5f, 3.25f, 3.75f, 3.83f });
+                tablaDecrementables = asignarTamanioColumna(tablaDecrementables, 5, tamanios);
 
                 celda = tablaDecrementables.Cell(1, 1);
-                celda = formatoCelda(celda, "Transporte", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                celda = formatoCelda(celda, "Decrementables", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                tablaDecrementables.Cell(1, 1).BottomPadding = 0;
+                tablaDecrementables.Cell(1, 1).Range.ParagraphFormat.SpaceAfter = 0;
 
                 celda = tablaDecrementables.Cell(1, 2);
-                celda = formatoCelda(celda, txtboxDreceTransporte.Text, 8, 0, objWord.WdColor.wdColorAutomatic, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                celda = formatoCelda(celda, "Proveedor", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                tablaDecrementables.Cell(1, 2).BottomPadding = 0;
+                tablaDecrementables.Cell(1, 2).Range.ParagraphFormat.SpaceAfter = 0;
 
                 celda = tablaDecrementables.Cell(1, 3);
-                celda = formatoCelda(celda, "Seguro", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
-
+                celda = formatoCelda(celda, "Cantidad", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                tablaDecrementables.Cell(1, 2).BottomPadding = 0;
+                tablaDecrementables.Cell(1, 2).Range.ParagraphFormat.SpaceAfter = 0;
                 celda = tablaDecrementables.Cell(1, 4);
-                celda = formatoCelda(celda, txtboxDreceSeguro.Text, 8, 0, objWord.WdColor.wdColorAutomatic, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
 
+                celda = formatoCelda(celda, "Fecha de Factura", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                tablaDecrementables.Cell(1, 2).BottomPadding = 0;
+                tablaDecrementables.Cell(1, 2).Range.ParagraphFormat.SpaceAfter = 0;
                 celda = tablaDecrementables.Cell(1, 5);
-                celda = formatoCelda(celda, "Carga", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
 
-                celda = tablaDecrementables.Cell(1, 6);
-                celda = formatoCelda(celda, txtboxDreceCarga.Text, 8, 0, objWord.WdColor.wdColorAutomatic, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                celda = formatoCelda(celda, "Fecha de Pago", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                tablaDecrementables.Cell(1, 2).BottomPadding = 0;
+                tablaDecrementables.Cell(1, 2).Range.ParagraphFormat.SpaceAfter = 0;
 
-                celda = tablaDecrementables.Cell(1, 7);
-                celda = formatoCelda(celda, "Embalaje", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                for (int r = 2; r <= filasDecre; r++)
+                {
+                    for (int c = 1; c <= columnasDecre; c++)
+                    {
+                        tablaDecrementables.Cell(r, c).Range.Text = dgvDrecrementables.Rows[r - 2].Cells[c - 1].Value.ToString();
+                        tablaDecrementables.Cell(r, c).Range.Bold = 0;
+                        //tablaGeneralEmbarque.Cell(r, c).Range.Text = $"F{r-2}C{c-1}";
+                    }
 
-                celda = tablaDecrementables.Cell(1, 8);
-                celda = formatoCelda(celda, txtboxDreceEmbalaje.Text, 8, 0, objWord.WdColor.wdColorAutomatic, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
-
-                celda = tablaDecrementables.Cell(1, 9);
-                celda = formatoCelda(celda, "Otros", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
-
-                celda = tablaDecrementables.Cell(1, 10);
-                celda = formatoCelda(celda, txtboxDreceOtrosGastos.Text, 8, 0, objWord.WdColor.wdColorAutomatic, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
-
-                objWord.Paragraph fechaDecrementables = objDocument.Paragraphs.Add();
-                objWord.Range rangeFechaDecrementables = fechaDecrementables.Range;
-
-                rangeFechaDecrementables.Font.Size = 8;
-                rangeFechaDecrementables.Text = "Fecha de Pago Decrementables: ";
-                rangeFechaDecrementables.Bold = 1;
-
-                rangeFechaDecrementables.Collapse(objWord.WdCollapseDirection.wdCollapseEnd);
-
-                rangeFechaDecrementables.Text = maskedFechaPagoDecrementables.Text;
-                rangeFechaDecrementables.Bold = 0;
-
-                rangeFechaDecrementables.InsertParagraphAfter();
+                }
 
                 parrafoEnter.Range.Text = "";
                 parrafoEnter.Format.SpaceAfter = 0f;
@@ -1354,11 +1405,82 @@ namespace CartaInstrucciones
                 tablaMercanciaDespachada.Cell(6, 2).Range.Text = txtboxObservacionesfleteDestino.Text;
                 tablaMercanciaDespachada.Cell(6, 2).Range.Bold = 0;
 
+                parrafoEnter.Range.Text = "";
+                parrafoEnter.Format.SpaceAfter = 0f;
+                parrafoEnter.Range.InsertParagraphAfter();
+
+
+                //TEXTO DESPEDIDA
+               
+                objWord.Paragraph textoDespedida = objDocument.Content.Paragraphs.Add(Type.Missing);
+                textoDespedida.Format.SpaceBefore = 18;
+
+                //objWord.Range rangeTextoDespedida = textoDespedida.Range;
+
+                textoDespedida.Range.Font.Size = 8;
+                textoDespedida.Range.Text = "Sin más por el momento, aprovecho para enviarle un saludo.";
+                textoDespedida.Range.Bold = 0;
+
+                textoDespedida.Range.InsertParagraphAfter();
+                
+                objWord.Paragraph textoAtentamente = objDocument.Content.Paragraphs.Add(Type.Missing);
+                textoAtentamente.Format.SpaceBefore = 12;
+                textoAtentamente.Alignment = objWord.WdParagraphAlignment.wdAlignParagraphCenter;
+                //objWord.Range rangeTextoAtentamente = textoAtentamente.Range;
+
+                textoAtentamente.Range.Font.Size = 8;
+                textoAtentamente.Range.Text = "A T E N T A M E N T E.-";
+                textoAtentamente.Range.Bold = 0;
+                textoAtentamente.Alignment = objWord.WdParagraphAlignment.wdAlignParagraphCenter;
+                textoAtentamente.Range.InsertParagraphAfter();
+
+
+                objWord.Paragraph textonombreRepresenante= objDocument.Content.Paragraphs.Add(Type.Missing);
+                textonombreRepresenante.Format.SpaceBefore = 0;
+                textonombreRepresenante.Alignment = objWord.WdParagraphAlignment.wdAlignParagraphCenter;
+                //objWord.Range rangeTextoNombreRepresenante = textonombreRepresenante.Range;
+
+                textonombreRepresenante.Range.Font.Size = 10;
+                textonombreRepresenante.Range.Text = txtboxRepresentanteLegalCarta.Text.ToUpper();
+                textonombreRepresenante.Range.Bold = 1;
+
+                textonombreRepresenante.Range.InsertParagraphAfter();
+
+                
+                objWord.Paragraph textoRepresentanteLegal = objDocument.Content.Paragraphs.Add(Type.Missing);
+                textoRepresentanteLegal.Format.SpaceBefore = 0;
+                textoRepresentanteLegal.Alignment = objWord.WdParagraphAlignment.wdAlignParagraphCenter;
+                //objWord.Range rangetextoRepresentanteLegal = textoRepresentanteLegal.Range;
+
+                textoRepresentanteLegal.Range.Font.Size = 8;
+                textoRepresentanteLegal.Range.Text = "Representante Legal";
+                textoRepresentanteLegal.Range.Bold = 0;
+
+                textoRepresentanteLegal.Range.InsertParagraphAfter();
+
+
+
+                objWord.Paragraph textoRFCRepresentante = objDocument.Content.Paragraphs.Add(Type.Missing);
+                textoRFCRepresentante.Format.SpaceBefore = 12;
+                textoRFCRepresentante.Alignment = objWord.WdParagraphAlignment.wdAlignParagraphCenter;
+                //objWord.Range rangetextoRFCRepresentante = textoRFCRepresentante.Range;
+
+                textoRFCRepresentante.Range.Font.Size = 10;
+                textoRFCRepresentante.Range.Text = txtboxRFCRepresentanteCarta.Text.ToUpper();
+                textoRFCRepresentante.Range.Bold = 1;
+
+                textoRFCRepresentante.Range.InsertParagraphAfter();
+
                 ruta = rutaCarta.FileName;
-                objDocument.SaveAs2(ruta);
-                objDocument.Close();
-                objAplication.Quit();
-                MessageBox.Show("Archivo Generado");
+                try { 
+                    objDocument.SaveAs2(ruta);
+                    objDocument.Close();
+                    objAplication.Quit();
+                    MessageBox.Show("Archivo Generado");
+                }
+                catch(Exception ex) {
+                    MessageBox.Show(ex.ToString());
+                }
             }
 
 
@@ -1392,120 +1514,17 @@ namespace CartaInstrucciones
             maskedFechaPagoIncrementables.Text = dtpFechaPagoIncrementables.Value.ToString();
         }
 
-        private void dtpFechaPagoDecrementables_CloseUp(object sender, EventArgs e)
-        {
-            maskedFechaPagoDecrementables.Text = dtpFechaPagoDecrementables.Value.ToString();
-        }
-
         private void dtpFechaPagoMercancias_CloseUp(object sender, EventArgs e)
         {
             maskedFechaPagoMercancias.Text = dtpFechaPagoMercancias.Value.ToString();
         }
 
-        private void txtboxIncreFlete_Enter(object sender, EventArgs e)
-        {
-            // Al entrar, quitamos los separadores de miles para que sea fácil editar
-            if (decimal.TryParse(txtboxIncreFlete.Text, out decimal valor))
-            {
-                // "G" es formato general, mantiene los decimales necesarios sin ceros extra
-                txtboxIncreFlete.Text = valor.ToString("G");
-            }
-        }
-
-        private void txtboxIncreSeguro_Enter(object sender, EventArgs e)
-        {
-            // Al entrar, quitamos los separadores de miles para que sea fácil editar
-            if (decimal.TryParse(txtboxIncreSeguro.Text, out decimal valor))
-            {
-                // "G" es formato general, mantiene los decimales necesarios sin ceros extra
-                txtboxIncreSeguro.Text = valor.ToString("G");
-            }
-        }
-
-        private void txtboxIncreEmbalaje_Enter(object sender, EventArgs e)
-        {
-            // Al entrar, quitamos los separadores de miles para que sea fácil editar
-            if (decimal.TryParse(txtboxIncreEmbalaje.Text, out decimal valor))
-            {
-                // "G" es formato general, mantiene los decimales necesarios sin ceros extra
-                txtboxIncreEmbalaje.Text = valor.ToString("G");
-            }
-        }
-
-        private void txtboxIncreOtrosgastos_Enter(object sender, EventArgs e)
-        {
-            // Al entrar, quitamos los separadores de miles para que sea fácil editar
-            if (decimal.TryParse(txtboxIncreOtrosgastos.Text, out decimal valor))
-            {
-                // "G" es formato general, mantiene los decimales necesarios sin ceros extra
-                txtboxIncreOtrosgastos.Text = valor.ToString("G");
-            }
-        }
 
         private void txtboxDreceTransporte_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void txtboxDreceTransporte_Enter(object sender, EventArgs e)
-        {
-            // Al entrar, quitamos los separadores de miles para que sea fácil editar
-            if (decimal.TryParse(txtboxDreceTransporte.Text, out decimal valor))
-            {
-                // "G" es formato general, mantiene los decimales necesarios sin ceros extra
-                txtboxDreceTransporte.Text = valor.ToString("G");
-            }
-        }
-
-        private void txtboxDreceSeguro_Enter(object sender, EventArgs e)
-        {
-            // Al entrar, quitamos los separadores de miles para que sea fácil editar
-            if (decimal.TryParse(txtboxDreceSeguro.Text, out decimal valor))
-            {
-                // "G" es formato general, mantiene los decimales necesarios sin ceros extra
-                txtboxDreceSeguro.Text = valor.ToString("G");
-            }
-        }
-
-        private void txtboxDreceCarga_Enter(object sender, EventArgs e)
-        {
-            // Al entrar, quitamos los separadores de miles para que sea fácil editar
-            if (decimal.TryParse(txtboxDreceCarga.Text, out decimal valor))
-            {
-                // "G" es formato general, mantiene los decimales necesarios sin ceros extra
-                txtboxDreceCarga.Text = valor.ToString("G");
-            }
-        }
-
-        private void txtboxDreceEmbalaje_Enter(object sender, EventArgs e)
-        {
-            // Al entrar, quitamos los separadores de miles para que sea fácil editar
-            if (decimal.TryParse(txtboxDreceEmbalaje.Text, out decimal valor))
-            {
-                // "G" es formato general, mantiene los decimales necesarios sin ceros extra
-                txtboxDreceEmbalaje.Text = valor.ToString("G");
-            }
-        }
-
-        private void txtboxDreceOtrosGastos_Enter(object sender, EventArgs e)
-        {
-            // Al entrar, quitamos los separadores de miles para que sea fácil editar
-            if (decimal.TryParse(txtboxDreceOtrosGastos.Text, out decimal valor))
-            {
-                // "G" es formato general, mantiene los decimales necesarios sin ceros extra
-                txtboxDreceOtrosGastos.Text = valor.ToString("G");
-            }
-        }
-
-        private void txtboxValorFactura1_Enter(object sender, EventArgs e)
-        {
-            // Al entrar, quitamos los separadores de miles para que sea fácil editar
-            if (decimal.TryParse(txtboxDreceOtrosGastos.Text, out decimal valor))
-            {
-                // "G" es formato general, mantiene los decimales necesarios sin ceros extra
-                txtboxDreceOtrosGastos.Text = valor.ToString("G");
-            }
-        }
 
         private void txtboxValorFactura2_Enter(object sender, EventArgs e)
         {
@@ -1517,17 +1536,193 @@ namespace CartaInstrucciones
             }
         }
 
-        private void gboxImportador_Enter(object sender, EventArgs e)
+
+        private void cboxAduana_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string idAduana = cboxAduana.Text;
+            Aduana miAduana = Aduana.Instancia.ListarunaAduana(idAduana);
+            txtboxNombreAduana.Text = miAduana.Nombre;
+        }
+
+        private void txtboxIncreCantidad_Enter(object sender, EventArgs e)
+        {
+            // Al entrar, quitamos los separadores de miles para que sea fácil editar
+            if (decimal.TryParse(txtboxIncreCantidad.Text, out decimal valor))
+            {
+                // "G" es formato general, mantiene los decimales necesarios sin ceros extra
+                txtboxIncreCantidad.Text = valor.ToString("G");
+            }
+        }
+
+        private void txtboxIncreCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true; // Ignora la tecla
+            }
+        }
+
+        private void txtboxIncreCantidad_Leave(object sender, EventArgs e)
+        {
+            txtboxIncreCantidad = formatoMoneda(txtboxIncreCantidad);
+        }
+
+        private void btnGuardarIncrementable_Click(object sender, EventArgs e)
+        {
+            if (dgvIncrementables.Enabled)
+            {
+                dgvIncrementables.Rows.Add(cboxIncrementable.Text, txtboxIncrePoveedor.Text, txtboxIncreCantidad.Text, maskedFechaFacturaIncrementables.Text, maskedFechaPagoIncrementables.Text);
+
+
+            }
+            else
+            {
+                dgvIncrementables.CurrentRow.Cells[0].Value = cboxIncrementable.Text;
+                dgvIncrementables.CurrentRow.Cells[1].Value = txtboxIncrePoveedor.Text;
+                dgvIncrementables.CurrentRow.Cells[2].Value = txtboxIncreCantidad.Text;
+                dgvIncrementables.CurrentRow.Cells[3].Value = maskedFechaFacturaIncrementables.Text;
+                dgvIncrementables.CurrentRow.Cells[4].Value = maskedFechaPagoIncrementables.Text;
+
+                btnEliminarIncrementable.Enabled = true;
+                dgvIncrementables.Enabled = true;
+
+            }
+            cboxIncrementable.Text = null;
+            txtboxIncrePoveedor.Text = null;
+            txtboxIncreCantidad.Text = null;
+            maskedFechaFacturaIncrementables.Text = null;
+            maskedFechaPagoIncrementables.Text = null;
+
 
         }
 
-        private void panelCartanInstrucciones_Paint(object sender, PaintEventArgs e)
+        private void btnCambiosIncrementable_Click(object sender, EventArgs e)
         {
+            if(dgvIncrementables.CurrentRow != null && !dgvIncrementables.CurrentRow.IsNewRow)
+            {
+                cboxIncrementable.Text = dgvIncrementables.CurrentRow.Cells[0].Value.ToString();
+                txtboxIncrePoveedor.Text = dgvIncrementables.CurrentRow.Cells[1].Value.ToString();
+                txtboxIncreCantidad.Text = dgvIncrementables.CurrentRow.Cells[2].Value.ToString();
+                maskedFechaFacturaIncrementables.Text = dgvIncrementables.CurrentRow.Cells[3].Value.ToString();
+                maskedFechaPagoIncrementables.Text = dgvIncrementables.CurrentRow.Cells[4].Value.ToString();
 
+                dgvIncrementables.Enabled = false;
+                btnEliminarIncrementable.Enabled = false;
+
+            }
         }
 
-        private void cboxProveedor1_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnEliminarIncrementable_Click(object sender, EventArgs e)
+        {
+            if (dgvIncrementables.CurrentRow != null && !dgvIncrementables.CurrentRow.IsNewRow)
+            {
+                dgvIncrementables.Rows.Remove(dgvIncrementables.CurrentRow);
+            }
+        }
+
+        private void dtpFechaFacturaIncrementables_CloseUp(object sender, EventArgs e)
+        {
+            maskedFechaFacturaIncrementables.Text = dtpFechaFacturaDecrementables.Value.ToString();
+        }
+
+        private void dtpFechaPagoDecrementables_CloseUp(object sender, EventArgs e)
+        {
+            maskedFechaPagoDecre.Text = dtpFechaPagoDecrementables.Value.ToString();
+        }
+
+        private void dtpFechaFacturaDecrementables_CloseUp(object sender, EventArgs e)
+        {
+            maskedFechaFacturaDecre.Text = dtpFechaFacturaDecrementables.Value.ToString();
+        }
+
+        private void btnGuardarDecre_Click(object sender, EventArgs e)
+        {
+            if (dgvDrecrementables.Enabled)
+            {
+                dgvDrecrementables.Rows.Add(cboxDrecrementables.Text, txtboxDecreProveedor.Text, txtboxDreceCantidad.Text, maskedFechaFacturaDecre.Text, maskedFechaPagoDecre.Text);
+
+            }
+            else
+            {
+                dgvDrecrementables.CurrentRow.Cells[0].Value = cboxDrecrementables.Text;
+                dgvDrecrementables.CurrentRow.Cells[1].Value = txtboxDecreProveedor.Text;
+                dgvDrecrementables.CurrentRow.Cells[2].Value = txtboxDreceCantidad.Text;
+                dgvDrecrementables.CurrentRow.Cells[3].Value = maskedFechaFacturaDecre.Text;
+                dgvDrecrementables.CurrentRow.Cells[4].Value = maskedFechaPagoDecre.Text;
+
+                dgvDrecrementables.Enabled = true;
+                btnEliminarDecre.Enabled = true;
+            }
+            cboxDrecrementables.Text = null;
+            txtboxDecreProveedor.Text = null;
+            txtboxDreceCantidad.Text = null;
+            maskedFechaFacturaDecre.Text = null;
+            maskedFechaPagoDecre.Text = null;
+
+        }
+        private void btnCambiosDecre_Click(object sender, EventArgs e)
+        {
+            if (dgvDrecrementables.CurrentRow != null && !dgvDrecrementables.CurrentRow.IsNewRow)
+            {
+                cboxDrecrementables.Text = dgvDrecrementables.CurrentRow.Cells[0].Value.ToString();
+                txtboxDecreProveedor.Text = dgvDrecrementables.CurrentRow.Cells[1].Value.ToString();
+                txtboxDreceCantidad.Text = dgvDrecrementables.CurrentRow.Cells[2].Value.ToString();
+                maskedFechaFacturaDecre.Text = dgvDrecrementables.CurrentRow.Cells[3].Value.ToString();
+                maskedFechaPagoDecre.Text = dgvDrecrementables.CurrentRow.Cells[4].Value.ToString();
+
+                dgvDrecrementables.Enabled = false;
+                btnEliminarDecre.Enabled = false;
+            }
+        }
+        private void btnEliminarDecre_Click(object sender, EventArgs e)
+        {
+            if (dgvDrecrementables.CurrentRow != null && !dgvDrecrementables.CurrentRow.IsNewRow)
+            {
+                dgvDrecrementables.Rows.Remove(dgvDrecrementables.CurrentRow);
+            }
+        }
+
+        private void cboxIncoterm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cboxIncoterm.Text)
+            {
+                case "EXW":
+                    txtIncotermDescripcion.Text = "Ex-Works (En fábrica)";
+                    break;
+                case "FCA":
+                    txtIncotermDescripcion.Text = "Free Carrier (Franco Porteador o Libre Transportista)";
+                    break;
+                case "FAS":
+                    txtIncotermDescripcion.Text = "Free Alongside Ship (Franco al Costado del Buque)";
+                    break;
+                case "FOB":
+                    txtIncotermDescripcion.Text = "Free On Board (Franco a Bordo)";
+                    break;
+                case "CFR":
+                    txtIncotermDescripcion.Text = "Cost and Freight (Coste y Flete)";
+                    break;
+                case "CIF":
+                    txtIncotermDescripcion.Text = "Cost, Insurance and Freight (Coste, Seguro y Flete)";
+                    break;
+                case "CPT":
+                    txtIncotermDescripcion.Text = "Carrier Paid To (Transporte pagado hasta)";
+                    break;
+                case "CIP":
+                    txtIncotermDescripcion.Text = "Carrier and Insurance Paid To (Transporte y Seguro pagados hasta)";
+                    break;
+                case "DPU":
+                    txtIncotermDescripcion.Text = "Delivered at Place Unloaded (Mercancía entregada y descargada)";
+                    break;
+                case "DAP":
+                    txtIncotermDescripcion.Text = "Delivered at Place (Entregada en lugar)";
+                    break;
+                case "DDP":
+                    txtIncotermDescripcion.Text = "Delivered Duty Paid (Entregada Derechos Pagados)";
+                    break;
+            }
+        }
+
+        private void dgvDrecrementables_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
