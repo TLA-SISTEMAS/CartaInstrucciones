@@ -801,7 +801,7 @@
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10});
-            this.dgvDrecrementables.Location = new System.Drawing.Point(361, 20);
+            this.dgvDrecrementables.Location = new System.Drawing.Point(361, 23);
             this.dgvDrecrementables.Name = "dgvDrecrementables";
             this.dgvDrecrementables.ReadOnly = true;
             this.dgvDrecrementables.RowHeadersVisible = false;
