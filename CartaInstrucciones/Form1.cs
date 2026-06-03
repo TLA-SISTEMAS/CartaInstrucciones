@@ -1189,12 +1189,12 @@ namespace CartaInstrucciones
                 tablaIncrementables.Cell(1, 1).Range.ParagraphFormat.SpaceAfter = 0;
 
                 celda = tablaIncrementables.Cell(1, 2);
-                celda = formatoCelda(celda, "Proveedor", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                celda = formatoCelda(celda, "Banco", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
                 tablaIncrementables.Cell(1, 2).BottomPadding = 0;
                 tablaIncrementables.Cell(1, 2).Range.ParagraphFormat.SpaceAfter = 0;
 
                 celda = tablaIncrementables.Cell(1, 3);
-                celda = formatoCelda(celda, "Cantidad", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                celda = formatoCelda(celda, "Monto", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
                 tablaIncrementables.Cell(1, 2).BottomPadding = 0;
                 tablaIncrementables.Cell(1, 2).Range.ParagraphFormat.SpaceAfter = 0;
                 celda = tablaIncrementables.Cell(1, 4);

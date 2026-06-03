@@ -1140,18 +1140,18 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(10, 48);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 13);
+            this.label11.Size = new System.Drawing.Size(38, 13);
             this.label11.TabIndex = 0;
-            this.label11.Text = "Proveedor";
+            this.label11.Text = "Banco";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(193, 20);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 13);
+            this.label9.Size = new System.Drawing.Size(37, 13);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Cantidad";
+            this.label9.Text = "Monto";
             // 
             // label8
             // 
@@ -2188,7 +2188,7 @@
             this.gbDatosAgencia.PerformLayout();
             this.gboxImportador.ResumeLayout(false);
             this.gboxImportador.PerformLayout();
-            //((System.ComponentModel.ISupportInitialize)(this.performanceCounter1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.performanceCounter1)).EndInit();
             this.panelCartanInstrucciones.ResumeLayout(false);
             this.ResumeLayout(false);
 
