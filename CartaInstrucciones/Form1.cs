@@ -1726,5 +1726,25 @@ namespace CartaInstrucciones
         {
 
         }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtboxBillLading_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gboxMaritimaTransportistaListaEmpaque_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboxTipoGuia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
