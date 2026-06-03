@@ -78,6 +78,11 @@
             this.label35 = new System.Windows.Forms.Label();
             this.cboxDrecrementables = new System.Windows.Forms.ComboBox();
             this.dgvDrecrementables = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maskedFechaPagoDecre = new System.Windows.Forms.MaskedTextBox();
             this.dtpFechaPagoDecrementables = new System.Windows.Forms.DateTimePicker();
             this.label38 = new System.Windows.Forms.Label();
@@ -96,6 +101,11 @@
             this.txtboxIncreCantidad = new System.Windows.Forms.TextBox();
             this.cboxIncrementable = new System.Windows.Forms.ComboBox();
             this.dgvIncrementables = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maskedFechaPagoIncrementables = new System.Windows.Forms.MaskedTextBox();
             this.dtpFechaPagoIncrementables = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
@@ -122,7 +132,7 @@
             this.txtboxTransportista = new System.Windows.Forms.TextBox();
             this.lblTransportista = new System.Windows.Forms.Label();
             this.txtboxGuiaMaritima = new System.Windows.Forms.TextBox();
-            this.lblGuiaMaritima = new System.Windows.Forms.Label();
+            this.lblGuiaMaster = new System.Windows.Forms.Label();
             this.btnCapturarFacturas = new System.Windows.Forms.Button();
             this.gboxFacturaIndividual = new System.Windows.Forms.GroupBox();
             this.lblFacturasCapturardasIndividual = new System.Windows.Forms.Label();
@@ -189,16 +199,10 @@
             this.performanceCounter1 = new System.Diagnostics.PerformanceCounter();
             this.btnGenerarCarta = new System.Windows.Forms.Button();
             this.panelCartanInstrucciones = new System.Windows.Forms.Panel();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtboxGuiaHouse = new System.Windows.Forms.TextBox();
+            this.txtboxBillLading = new System.Windows.Forms.TextBox();
             this.gboxOpciones.SuspendLayout();
             this.gboxCartaInstrucciones.SuspendLayout();
             this.gboxAgregados.SuspendLayout();
@@ -811,6 +815,44 @@
             this.dgvDrecrementables.TabIndex = 11;
             this.dgvDrecrementables.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDrecrementables_CellContentClick);
             // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Decrementable";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Proveedor";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "Cantidad";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "Fecha de Factura";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "Fecha de Pago";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Width = 150;
+            // 
             // maskedFechaPagoDecre
             // 
             this.maskedFechaPagoDecre.Location = new System.Drawing.Point(100, 77);
@@ -1012,6 +1054,44 @@
             this.dgvIncrementables.Size = new System.Drawing.Size(673, 112);
             this.dgvIncrementables.TabIndex = 11;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Incrementable";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Proveedor";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Cantidad";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Fecha de Factura";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Fecha de Pago";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 150;
+            // 
             // maskedFechaPagoIncrementables
             // 
             this.maskedFechaPagoIncrementables.Location = new System.Drawing.Point(100, 74);
@@ -1202,6 +1282,10 @@
             // 
             // gboxMaritimaTransportistaListaEmpaque
             // 
+            this.gboxMaritimaTransportistaListaEmpaque.Controls.Add(this.txtboxBillLading);
+            this.gboxMaritimaTransportistaListaEmpaque.Controls.Add(this.txtboxGuiaHouse);
+            this.gboxMaritimaTransportistaListaEmpaque.Controls.Add(this.label14);
+            this.gboxMaritimaTransportistaListaEmpaque.Controls.Add(this.label13);
             this.gboxMaritimaTransportistaListaEmpaque.Controls.Add(this.txtboxObservacionesGeneralesEmbarque);
             this.gboxMaritimaTransportistaListaEmpaque.Controls.Add(this.lblObservacionesGeneralesdelEmbarque);
             this.gboxMaritimaTransportistaListaEmpaque.Controls.Add(this.txtboxListaEmpaque);
@@ -1209,7 +1293,7 @@
             this.gboxMaritimaTransportistaListaEmpaque.Controls.Add(this.txtboxTransportista);
             this.gboxMaritimaTransportistaListaEmpaque.Controls.Add(this.lblTransportista);
             this.gboxMaritimaTransportistaListaEmpaque.Controls.Add(this.txtboxGuiaMaritima);
-            this.gboxMaritimaTransportistaListaEmpaque.Controls.Add(this.lblGuiaMaritima);
+            this.gboxMaritimaTransportistaListaEmpaque.Controls.Add(this.lblGuiaMaster);
             this.gboxMaritimaTransportistaListaEmpaque.Enabled = false;
             this.gboxMaritimaTransportistaListaEmpaque.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxMaritimaTransportistaListaEmpaque.Location = new System.Drawing.Point(14, 284);
@@ -1220,15 +1304,15 @@
             // 
             // txtboxObservacionesGeneralesEmbarque
             // 
-            this.txtboxObservacionesGeneralesEmbarque.Location = new System.Drawing.Point(93, 39);
+            this.txtboxObservacionesGeneralesEmbarque.Location = new System.Drawing.Point(408, 39);
             this.txtboxObservacionesGeneralesEmbarque.Multiline = true;
             this.txtboxObservacionesGeneralesEmbarque.Name = "txtboxObservacionesGeneralesEmbarque";
-            this.txtboxObservacionesGeneralesEmbarque.Size = new System.Drawing.Size(936, 51);
-            this.txtboxObservacionesGeneralesEmbarque.TabIndex = 4;
+            this.txtboxObservacionesGeneralesEmbarque.Size = new System.Drawing.Size(621, 51);
+            this.txtboxObservacionesGeneralesEmbarque.TabIndex = 6;
             // 
             // lblObservacionesGeneralesdelEmbarque
             // 
-            this.lblObservacionesGeneralesdelEmbarque.Location = new System.Drawing.Point(12, 39);
+            this.lblObservacionesGeneralesdelEmbarque.Location = new System.Drawing.Point(315, 42);
             this.lblObservacionesGeneralesdelEmbarque.Name = "lblObservacionesGeneralesdelEmbarque";
             this.lblObservacionesGeneralesdelEmbarque.Size = new System.Drawing.Size(87, 42);
             this.lblObservacionesGeneralesdelEmbarque.TabIndex = 0;
@@ -1239,7 +1323,7 @@
             this.txtboxListaEmpaque.Location = new System.Drawing.Point(709, 13);
             this.txtboxListaEmpaque.Name = "txtboxListaEmpaque";
             this.txtboxListaEmpaque.Size = new System.Drawing.Size(320, 20);
-            this.txtboxListaEmpaque.TabIndex = 3;
+            this.txtboxListaEmpaque.TabIndex = 5;
             // 
             // lblListaEmpaque
             // 
@@ -1255,7 +1339,7 @@
             this.txtboxTransportista.Location = new System.Drawing.Point(389, 13);
             this.txtboxTransportista.Name = "txtboxTransportista";
             this.txtboxTransportista.Size = new System.Drawing.Size(216, 20);
-            this.txtboxTransportista.TabIndex = 2;
+            this.txtboxTransportista.TabIndex = 4;
             // 
             // lblTransportista
             // 
@@ -1273,14 +1357,14 @@
             this.txtboxGuiaMaritima.Size = new System.Drawing.Size(216, 20);
             this.txtboxGuiaMaritima.TabIndex = 1;
             // 
-            // lblGuiaMaritima
+            // lblGuiaMaster
             // 
-            this.lblGuiaMaritima.AutoSize = true;
-            this.lblGuiaMaritima.Location = new System.Drawing.Point(12, 16);
-            this.lblGuiaMaritima.Name = "lblGuiaMaritima";
-            this.lblGuiaMaritima.Size = new System.Drawing.Size(71, 13);
-            this.lblGuiaMaritima.TabIndex = 0;
-            this.lblGuiaMaritima.Text = "Guia Maritima";
+            this.lblGuiaMaster.AutoSize = true;
+            this.lblGuiaMaster.Location = new System.Drawing.Point(12, 16);
+            this.lblGuiaMaster.Name = "lblGuiaMaster";
+            this.lblGuiaMaster.Size = new System.Drawing.Size(64, 13);
+            this.lblGuiaMaster.TabIndex = 0;
+            this.lblGuiaMaster.Text = "Guia Master";
             // 
             // btnCapturarFacturas
             // 
@@ -1965,81 +2049,37 @@
             this.panelCartanInstrucciones.Size = new System.Drawing.Size(1100, 498);
             this.panelCartanInstrucciones.TabIndex = 271;
             // 
-            // dataGridViewTextBoxColumn1
+            // label13
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Incrementable";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(12, 42);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(63, 13);
+            this.label13.TabIndex = 5;
+            this.label13.Text = "Guia House";
             // 
-            // dataGridViewTextBoxColumn3
+            // label14
             // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Proveedor";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 200;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(12, 71);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(67, 13);
+            this.label14.TabIndex = 6;
+            this.label14.Text = "Bill of Lading";
             // 
-            // dataGridViewTextBoxColumn2
+            // txtboxGuiaHouse
             // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Cantidad";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.txtboxGuiaHouse.Location = new System.Drawing.Point(93, 41);
+            this.txtboxGuiaHouse.Name = "txtboxGuiaHouse";
+            this.txtboxGuiaHouse.Size = new System.Drawing.Size(216, 20);
+            this.txtboxGuiaHouse.TabIndex = 2;
             // 
-            // dataGridViewTextBoxColumn5
+            // txtboxBillLading
             // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Fecha de Factura";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Fecha de Pago";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Decrementable";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "Proveedor";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "Cantidad";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "Fecha de Factura";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "Fecha de Pago";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 150;
+            this.txtboxBillLading.Location = new System.Drawing.Point(93, 68);
+            this.txtboxBillLading.Name = "txtboxBillLading";
+            this.txtboxBillLading.Size = new System.Drawing.Size(216, 20);
+            this.txtboxBillLading.TabIndex = 3;
             // 
             // Form1
             // 
@@ -2157,7 +2197,7 @@
         private System.Windows.Forms.TextBox txtboxTransportista;
         private System.Windows.Forms.Label lblTransportista;
         private System.Windows.Forms.TextBox txtboxGuiaMaritima;
-        private System.Windows.Forms.Label lblGuiaMaritima;
+        private System.Windows.Forms.Label lblGuiaMaster;
         private System.Windows.Forms.GroupBox gboxGeneralesDespachoAduanal;
         private System.Windows.Forms.CheckBox ckboxR1;
         private System.Windows.Forms.Label label5;
@@ -2267,6 +2307,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtboxBillLading;
+        private System.Windows.Forms.TextBox txtboxGuiaHouse;
     }
 }
 
