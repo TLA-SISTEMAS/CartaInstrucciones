@@ -1040,42 +1040,70 @@ namespace CartaInstrucciones
                 parrafoEnter.Range.InsertParagraphAfter();
 
                 objWord.Range rangetablaGeneralEmbarque = objDocument.Paragraphs.Add(ref missing).Range;
-                objWord.Table tablaGeneralEmbarque = objDocument.Tables.Add(rangetablaGeneralEmbarque, 4, 2);
+                int NumRowstablaGeneralEmbarque = 3;
+                int NumColumnstablaGeneralEmbarque = 2;
+                int NumRowExtratablaGeneralEmbarque = 0;
+
+                if (gboxMaritimoAero.Visible)
+                {
+                    NumRowExtratablaGeneralEmbarque += 2;
+                }
+                else
+                {
+                    NumRowExtratablaGeneralEmbarque += 1;
+                }
+
+                objWord.Table tablaGeneralEmbarque = objDocument.Tables.Add(rangetablaGeneralEmbarque, NumRowstablaGeneralEmbarque + NumRowExtratablaGeneralEmbarque, NumColumnstablaGeneralEmbarque);
 
                 //TABLA GUIA Maritima
 
                 tamanios.Clear();
                 tamanios.AddRange(new float[] { 2.49f, 17f} );
                 
-                tablaGeneralEmbarque = asignarTamanioColumna(tablaGeneralEmbarque, 2, tamanios);
+                tablaGeneralEmbarque = asignarTamanioColumna(tablaGeneralEmbarque, NumColumnstablaGeneralEmbarque, tamanios);
 
-                tablaGeneralEmbarque.Rows[4].Height = 1.09f * cmToPoints;
+                tablaGeneralEmbarque.Rows[NumRowstablaGeneralEmbarque + NumRowExtratablaGeneralEmbarque].Height = 1.09f * cmToPoints;
                 tablaGeneralEmbarque.Borders.Enable = 1;
 
-                celda = tablaGeneralEmbarque.Cell(1, 1);
-                celda = formatoCelda(celda, "Guía Marítima", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                if (gboxMaritimoAero.Visible)
+                {
+                    celda = tablaGeneralEmbarque.Cell(1, 1);
+                    celda = formatoCelda(celda, "Guia Master", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                    
+                    tablaGeneralEmbarque.Cell(1, 2).Range.Text = txtboxGuiaMaritima.Text.ToUpper();
+                    tablaGeneralEmbarque.Cell(1, 2).Range.Bold = 0;
 
-                tablaGeneralEmbarque.Cell(1, 2).Range.Text = txtboxGuiaMaritima.Text.ToUpper();
-                tablaGeneralEmbarque.Cell(1, 2).Range.Bold = 0;
+                    celda = tablaGeneralEmbarque.Cell(2, 1);
+                    celda = formatoCelda(celda, "Guia House", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                    tablaGeneralEmbarque.Cell(2, 2).Range.Text = txtboxGuiaHouse.Text.ToUpper();
+                    tablaGeneralEmbarque.Cell(2, 2).Range.Bold = 0;
+                }
+                else if (gboxTerrestre.Visible)
+                {
+                    celda = tablaGeneralEmbarque.Cell(1, 1);
+                    celda = formatoCelda(celda, "Bill of Lading", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
+                    tablaGeneralEmbarque.Cell(1, 2).Range.Text = txtboxBillLading.Text.ToUpper();
+                    tablaGeneralEmbarque.Cell(1, 2).Range.Bold = 0;
+                }
 
-                celda = tablaGeneralEmbarque.Cell(2, 1);
+                celda = tablaGeneralEmbarque.Cell(1 + NumRowExtratablaGeneralEmbarque, 1);
                 celda = formatoCelda(celda, "Transportista", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
 
-                tablaGeneralEmbarque.Cell(2,2).Range.Text = txtboxTransportista.Text.ToUpper();
-                tablaGeneralEmbarque.Cell(2, 2).Range.Bold = 0;
+                tablaGeneralEmbarque.Cell(1 + NumRowExtratablaGeneralEmbarque, 2).Range.Text = txtboxTransportista.Text.ToUpper();
+                tablaGeneralEmbarque.Cell(1 + NumRowExtratablaGeneralEmbarque, 2).Range.Bold = 0;
 
 
-                celda = tablaGeneralEmbarque.Cell(3, 1);
+                celda = tablaGeneralEmbarque.Cell(2 + NumRowExtratablaGeneralEmbarque, 1);
                 celda = formatoCelda(celda, "Lista de Empaque", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
 
-                tablaGeneralEmbarque.Cell(3, 2).Range.Text = txtboxListaEmpaque.Text.ToUpper();
-                tablaGeneralEmbarque.Cell(3, 2).Range.Bold = 0;
+                tablaGeneralEmbarque.Cell(2 + NumRowExtratablaGeneralEmbarque, 2).Range.Text = txtboxListaEmpaque.Text.ToUpper();
+                tablaGeneralEmbarque.Cell(2 + NumRowExtratablaGeneralEmbarque, 2).Range.Bold = 0;
 
-                celda = tablaGeneralEmbarque.Cell(4, 1);
+                celda = tablaGeneralEmbarque.Cell(3 + NumRowExtratablaGeneralEmbarque, 1);
                 celda = formatoCelda(celda, "Observaciones Generales del Embarque", 8, 1, objWord.WdColor.wdColorGray25, objWord.WdCellVerticalAlignment.wdCellAlignVerticalCenter, objWord.WdParagraphAlignment.wdAlignParagraphCenter);
 
-                tablaGeneralEmbarque.Cell(4, 2).Range.Text = txtboxObservacionesGeneralesEmbarque.Text;
-                tablaGeneralEmbarque.Cell(4, 2).Range.Bold = 0;
+                tablaGeneralEmbarque.Cell(3 + NumRowExtratablaGeneralEmbarque, 2).Range.Text = txtboxObservacionesGeneralesEmbarque.Text;
+                tablaGeneralEmbarque.Cell(3 + NumRowExtratablaGeneralEmbarque, 2).Range.Bold = 0;
 
 
                 objParrafoTitulos.Range.Text = "GENERALES DE DESPACHO ADUANAL";
