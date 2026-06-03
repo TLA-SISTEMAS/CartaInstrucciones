@@ -1744,7 +1744,20 @@ namespace CartaInstrucciones
 
         private void cboxTipoGuia_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if(cboxTipoGuia.Text == "Marítimo/Aero")
+            {
+                gboxMaritimoAero.Visible = true;
+                gboxMaritimoAero.Enabled = true;
+                gboxTerrestre.Visible = false;
+                gboxTerrestre.Enabled = false;
+            }
+            else
+            {
+                gboxMaritimoAero.Visible = false;
+                gboxMaritimoAero.Enabled = false;
+                gboxTerrestre.Visible = true;
+                gboxTerrestre.Enabled = true;
+            }
         }
     }
 }

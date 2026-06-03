@@ -206,7 +206,7 @@
             this.gboxMaritimoAero = new System.Windows.Forms.GroupBox();
             this.cboxTipoGuia = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.cboxTerrestre = new System.Windows.Forms.GroupBox();
+            this.gboxTerrestre = new System.Windows.Forms.GroupBox();
             this.gboxOpciones.SuspendLayout();
             this.gboxCartaInstrucciones.SuspendLayout();
             this.gboxAgregados.SuspendLayout();
@@ -229,7 +229,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.performanceCounter1)).BeginInit();
             this.panelCartanInstrucciones.SuspendLayout();
             this.gboxMaritimoAero.SuspendLayout();
-            this.cboxTerrestre.SuspendLayout();
+            this.gboxTerrestre.SuspendLayout();
             this.SuspendLayout();
             // 
             // gboxOpciones
@@ -1289,7 +1289,7 @@
             // gboxMaritimaTransportistaListaEmpaque
             // 
             this.gboxMaritimaTransportistaListaEmpaque.Controls.Add(this.gboxMaritimoAero);
-            this.gboxMaritimaTransportistaListaEmpaque.Controls.Add(this.cboxTerrestre);
+            this.gboxMaritimaTransportistaListaEmpaque.Controls.Add(this.gboxTerrestre);
             this.gboxMaritimaTransportistaListaEmpaque.Controls.Add(this.label15);
             this.gboxMaritimaTransportistaListaEmpaque.Controls.Add(this.cboxTipoGuia);
             this.gboxMaritimaTransportistaListaEmpaque.Controls.Add(this.txtboxObservacionesGeneralesEmbarque);
@@ -2124,17 +2124,17 @@
             this.label15.TabIndex = 8;
             this.label15.Text = "Tipo de Guia";
             // 
-            // cboxTerrestre
+            // gboxTerrestre
             // 
-            this.cboxTerrestre.Controls.Add(this.txtboxBillLading);
-            this.cboxTerrestre.Controls.Add(this.label14);
-            this.cboxTerrestre.Location = new System.Drawing.Point(11, 33);
-            this.cboxTerrestre.Name = "cboxTerrestre";
-            this.cboxTerrestre.Size = new System.Drawing.Size(303, 65);
-            this.cboxTerrestre.TabIndex = 304;
-            this.cboxTerrestre.TabStop = false;
-            this.cboxTerrestre.Text = "Terrestre";
-            this.cboxTerrestre.Visible = false;
+            this.gboxTerrestre.Controls.Add(this.txtboxBillLading);
+            this.gboxTerrestre.Controls.Add(this.label14);
+            this.gboxTerrestre.Location = new System.Drawing.Point(11, 33);
+            this.gboxTerrestre.Name = "gboxTerrestre";
+            this.gboxTerrestre.Size = new System.Drawing.Size(303, 65);
+            this.gboxTerrestre.TabIndex = 304;
+            this.gboxTerrestre.TabStop = false;
+            this.gboxTerrestre.Text = "Terrestre";
+            this.gboxTerrestre.Visible = false;
             // 
             // Form1
             // 
@@ -2188,8 +2188,8 @@
             this.panelCartanInstrucciones.ResumeLayout(false);
             this.gboxMaritimoAero.ResumeLayout(false);
             this.gboxMaritimoAero.PerformLayout();
-            this.cboxTerrestre.ResumeLayout(false);
-            this.cboxTerrestre.PerformLayout();
+            this.gboxTerrestre.ResumeLayout(false);
+            this.gboxTerrestre.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2370,7 +2370,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtboxBillLading;
         private System.Windows.Forms.TextBox txtboxGuiaHouse;
-        private System.Windows.Forms.GroupBox cboxTerrestre;
+        private System.Windows.Forms.GroupBox gboxTerrestre;
         private System.Windows.Forms.GroupBox gboxMaritimoAero;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox cboxTipoGuia;
