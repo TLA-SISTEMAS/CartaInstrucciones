@@ -1650,7 +1650,7 @@ namespace CartaInstrucciones
 
         private void dtpFechaFacturaIncrementables_CloseUp(object sender, EventArgs e)
         {
-            maskedFechaFacturaIncrementables.Text = dtpFechaFacturaDecrementables.Value.ToString();
+            maskedFechaFacturaIncrementables.Text = dtpFechaFacturaIncrementables.Value.ToString();
         }
 
         private void dtpFechaPagoDecrementables_CloseUp(object sender, EventArgs e)
@@ -1787,5 +1787,6 @@ namespace CartaInstrucciones
                 gboxTerrestre.Enabled = true;
             }
         }
+
     }
 }
