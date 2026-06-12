@@ -286,6 +286,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CartadeInstruccionesLlenado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CartadeInstruccionesLlenado.Designer.cs">
+      <DependentUpon>CartadeInstruccionesLlenado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CartadeInstruccionesMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CartadeInstruccionesMenu.Designer.cs">
+      <DependentUpon>CartadeInstruccionesMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="CartaInstruccionesWord.cs" />
     <Compile Include="DatosImportador.cs">
       <SubType>Form</SubType>
@@ -314,6 +326,9 @@
     <Content Include="e_sqlite3.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="CartadeInstruccionesLlenado.resx">
+      <DependentUpon>CartadeInstruccionesLlenado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DatosImportador.resx">
       <DependentUpon>DatosImportador.cs</DependentUpon>
     </EmbeddedResource>

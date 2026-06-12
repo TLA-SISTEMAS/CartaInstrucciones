@@ -385,3 +385,4 @@ C:\Users\manue\source\repos\TLA-SISTEMAS\CartaInstrucciones\CartaInstrucciones\o
 C:\Users\manue\source\repos\TLA-SISTEMAS\CartaInstrucciones\CartaInstrucciones\obj\x64\Debug\CartaIns.F04CA1BC.Up2Date
 C:\Users\manue\source\repos\TLA-SISTEMAS\CartaInstrucciones\CartaInstrucciones\obj\x64\Debug\CartaInstrucciones.exe
 C:\Users\manue\source\repos\TLA-SISTEMAS\CartaInstrucciones\CartaInstrucciones\obj\x64\Debug\CartaInstrucciones.pdb
+C:\Users\Camaras\source\repos\CartaInstrucciones\CartaInstrucciones\obj\x64\Debug\CartaInstrucciones.CartadeInstruccionesLlenado.resources
