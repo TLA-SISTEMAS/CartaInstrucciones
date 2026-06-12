@@ -54,14 +54,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CartaInstrucciones.exe" size="606112">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CartaInstrucciones.exe" size="623008">
       <assemblyIdentity name="CartaInstrucciones" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>A8xzPxBCrB/ROymoEoCmu8ZbsyGfibFNQA76eFMX6Tc=</dsig:DigestValue>
+        <dsig:DigestValue>F8I6l5EsyqfmgOLF7omVvPj66AKTndOQx/6qg4weZ30=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

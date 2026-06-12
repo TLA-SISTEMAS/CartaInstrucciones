@@ -2140,8 +2140,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1311, 613);
             this.Controls.Add(this.gbDatosAgencia);
             this.Controls.Add(this.btnGenerarCarta);
@@ -2149,8 +2150,10 @@
             this.Controls.Add(this.gboxOpciones);
             this.Controls.Add(this.gboxImportador);
             this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IsMdiContainer = true;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Carta de Instrucciones Tecno Logistica Aduanal";
@@ -2188,7 +2191,7 @@
             this.gbDatosAgencia.PerformLayout();
             this.gboxImportador.ResumeLayout(false);
             this.gboxImportador.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.performanceCounter1)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.performanceCounter1)).EndInit();
             this.panelCartanInstrucciones.ResumeLayout(false);
             this.ResumeLayout(false);
 
