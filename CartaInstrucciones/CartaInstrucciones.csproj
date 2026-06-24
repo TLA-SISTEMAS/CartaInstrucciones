@@ -329,6 +329,9 @@
     <EmbeddedResource Include="CartadeInstruccionesLlenado.resx">
       <DependentUpon>CartadeInstruccionesLlenado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CartadeInstruccionesMenu.resx">
+      <DependentUpon>CartadeInstruccionesMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DatosImportador.resx">
       <DependentUpon>DatosImportador.cs</DependentUpon>
     </EmbeddedResource>

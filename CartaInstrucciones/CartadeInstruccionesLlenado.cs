@@ -15,9 +15,22 @@ namespace CartaInstrucciones
     public partial class CartadeInstruccionesLlenado : Form
     {
         int cantidadFacturasCapturarGlobal = 0;
+        private static CartadeInstruccionesLlenado _instancia;
         public CartadeInstruccionesLlenado()
         {
             InitializeComponent();
+        }
+
+        public static CartadeInstruccionesLlenado Instancia
+        {
+            get
+            {
+                if (_instancia == null || _instancia.IsDisposed)
+                {
+                    _instancia = new CartadeInstruccionesLlenado();
+                }
+                return _instancia;
+            }
         }
 
         private void CartadeInstruccionesLlenado_Load(object sender, EventArgs e)

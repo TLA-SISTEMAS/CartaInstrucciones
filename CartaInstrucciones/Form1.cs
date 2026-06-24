@@ -24,7 +24,6 @@ namespace CartaInstrucciones
     public partial class Form1 : Form
     {
         LinkLabel linkVisitedLabel = new LinkLabel();
-        int cantidadFacturasCapturarGlobal = 0;
         public Form1()
         {
             InitializeComponent();
@@ -38,6 +37,35 @@ namespace CartaInstrucciones
         }
 
         private void tsmCatalogo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsmCartadeInstrucciones_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void catálogoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CartadeInstruccionesMenu miCartadeInstruccionesMenu = CartadeInstruccionesMenu.Instancia;
+
+            if (miCartadeInstruccionesMenu.MdiParent == null)
+            {
+                miCartadeInstruccionesMenu.MdiParent = this;
+            }
+
+            if (miCartadeInstruccionesMenu.WindowState == FormWindowState.Minimized)
+            {
+                miCartadeInstruccionesMenu.WindowState = FormWindowState.Normal;
+            }
+
+            miCartadeInstruccionesMenu.Show(); // Show() se encarga de mostrarlo por primera vez
+            miCartadeInstruccionesMenu.BringToFront();
+            miCartadeInstruccionesMenu.Focus();
+        }
+
+        private void importadoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

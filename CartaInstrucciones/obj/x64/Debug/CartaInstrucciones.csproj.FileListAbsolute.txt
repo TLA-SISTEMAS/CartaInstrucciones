@@ -386,3 +386,4 @@ C:\Users\manue\source\repos\TLA-SISTEMAS\CartaInstrucciones\CartaInstrucciones\o
 C:\Users\manue\source\repos\TLA-SISTEMAS\CartaInstrucciones\CartaInstrucciones\obj\x64\Debug\CartaInstrucciones.exe
 C:\Users\manue\source\repos\TLA-SISTEMAS\CartaInstrucciones\CartaInstrucciones\obj\x64\Debug\CartaInstrucciones.pdb
 C:\Users\Camaras\source\repos\CartaInstrucciones\CartaInstrucciones\obj\x64\Debug\CartaInstrucciones.CartadeInstruccionesLlenado.resources
+C:\Users\Camaras\source\repos\CartaInstrucciones\CartaInstrucciones\obj\x64\Debug\CartaInstrucciones.CartadeInstruccionesMenu.resources

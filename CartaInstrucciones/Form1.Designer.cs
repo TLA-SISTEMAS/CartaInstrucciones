@@ -32,10 +32,10 @@
             this.performanceCounter1 = new System.Diagnostics.PerformanceCounter();
             this.msPrincipal = new System.Windows.Forms.MenuStrip();
             this.tsmCatalogo = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmCartadeInstrucciones = new System.Windows.Forms.ToolStripMenuItem();
-            this.catálogoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCartadeInstrucciones = new System.Windows.Forms.ToolStripMenuItem();
+            this.catálogoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.performanceCounter1)).BeginInit();
             this.msPrincipal.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +63,19 @@
             this.tsmCatalogo.Text = "Catálogos";
             this.tsmCatalogo.Click += new System.EventHandler(this.tsmCatalogo_Click);
             // 
+            // importadoresToolStripMenuItem
+            // 
+            this.importadoresToolStripMenuItem.Name = "importadoresToolStripMenuItem";
+            this.importadoresToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.importadoresToolStripMenuItem.Text = "Importadores";
+            this.importadoresToolStripMenuItem.Click += new System.EventHandler(this.importadoresToolStripMenuItem_Click);
+            // 
+            // proveedoresToolStripMenuItem
+            // 
+            this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
+            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.proveedoresToolStripMenuItem.Text = "Proveedores";
+            // 
             // tsmCartadeInstrucciones
             // 
             this.tsmCartadeInstrucciones.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -70,24 +83,14 @@
             this.tsmCartadeInstrucciones.Name = "tsmCartadeInstrucciones";
             this.tsmCartadeInstrucciones.Size = new System.Drawing.Size(149, 21);
             this.tsmCartadeInstrucciones.Text = "Carta de Instrucciones";
+            this.tsmCartadeInstrucciones.Click += new System.EventHandler(this.tsmCartadeInstrucciones_Click);
             // 
             // catálogoToolStripMenuItem
             // 
             this.catálogoToolStripMenuItem.Name = "catálogoToolStripMenuItem";
-            this.catálogoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.catálogoToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.catálogoToolStripMenuItem.Text = "Catálogo";
-            // 
-            // importadoresToolStripMenuItem
-            // 
-            this.importadoresToolStripMenuItem.Name = "importadoresToolStripMenuItem";
-            this.importadoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.importadoresToolStripMenuItem.Text = "Importadores";
-            // 
-            // proveedoresToolStripMenuItem
-            // 
-            this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
-            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.proveedoresToolStripMenuItem.Text = "Proveedores";
+            this.catálogoToolStripMenuItem.Click += new System.EventHandler(this.catálogoToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -100,11 +103,9 @@
             this.Controls.Add(this.msPrincipal);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.msPrincipal;
-            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Carta de Instrucciones Tecno Logistica Aduanal";
             this.Load += new System.EventHandler(this.Form1_Load);
