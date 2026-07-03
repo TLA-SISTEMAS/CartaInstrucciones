@@ -3,20 +3,20 @@
   <assemblyIdentity name="CartaInstrucciones.application" version="1.0.0.7" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="amd64" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <description asmv2:publisher="CartaInstrucciones" asmv2:product="CartaInstrucciones" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" mapFileExtensions="true">
-    <deploymentProvider codebase="http://tlnldsis02/CartaInstrucciones/CartaInstrucciones.application" />
+    <deploymentProvider codebase="http://desktop-bbcbt27/CartaInstrucciones/CartaInstrucciones.application" />
   </deployment>
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="CartaInstrucciones.exe.manifest" size="41054">
+    <dependentAssembly dependencyType="install" codebase="CartaInstrucciones.exe.manifest" size="41055">
       <assemblyIdentity name="CartaInstrucciones.exe" version="1.0.0.7" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="amd64" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Niod7SgQsqt8HZjv+QGLJikKKlSuH15BtPiF082VBKE=</dsig:DigestValue>
+        <dsig:DigestValue>XL8Jek1rbQZQqD7NBKEvihwBdFX1IyBhKT6asz8i5Fs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
